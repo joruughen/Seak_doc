@@ -1,0 +1,1348 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "seak_wave_height_pipeline",
+        "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
+        "nodes": [
+          "wiki_concepts_shader_de_agua",
+          "wiki_modules_sistema_de_agua",
+          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+          "wiki_modules_cube_flotante",
+          "wiki_concepts_f_sicas_de_flotabilidad"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "wiki/overview.md"
+      },
+      {
+        "id": "seak_player_cube_stabilization",
+        "label": "Player-Cube Stabilization Fix (ADR-002)",
+        "nodes": [
+          "wiki_concepts_charactercontroller",
+          "wiki_concepts_f_sicas_de_flotabilidad",
+          "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+          "wiki_modules_player_controller",
+          "wiki_modules_cube_flotante"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md"
+      },
+      {
+        "id": "seak_water_shader_refactor",
+        "label": "Water Shader Refactor (ADR-001)",
+        "nodes": [
+          "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+          "wiki_concepts_shader_de_agua",
+          "wiki_modules_sistema_de_agua",
+          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "app.json",
+      "file_type": "code",
+      "source_file": ".obsidian/app.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "obsidian_app",
+      "community": 5,
+      "norm_label": "app.json"
+    },
+    {
+      "label": "SeaK Wiki \u2014 CLAUDE.md (Vault Config)",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md",
+      "community": 0,
+      "norm_label": "seak wiki \u2014 claude.md (vault config)"
+    },
+    {
+      "label": "Welcome (Obsidian Default Note)",
+      "file_type": "document",
+      "source_file": "Welcome.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "welcome",
+      "community": 6,
+      "norm_label": "welcome (obsidian default note)"
+    },
+    {
+      "label": "CharacterController",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_charactercontroller",
+      "community": 3,
+      "norm_label": "charactercontroller"
+    },
+    {
+      "label": "CharacterBody3D",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_charactercontroller_characterbody3d",
+      "community": 3,
+      "norm_label": "characterbody3d"
+    },
+    {
+      "label": "RigidBody3D",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_charactercontroller_rigidbody3d",
+      "community": 3,
+      "norm_label": "rigidbody3d"
+    },
+    {
+      "label": "F\u00edsicas de Flotabilidad",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/F\u00edsicas de Flotabilidad.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_f_sicas_de_flotabilidad",
+      "community": 1,
+      "norm_label": "fisicas de flotabilidad"
+    },
+    {
+      "label": "Shader de Agua",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_shader_de_agua",
+      "community": 1,
+      "norm_label": "shader de agua"
+    },
+    {
+      "label": "Ley de Beer (Beer's Law)",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_shader_de_agua_ley_de_beer",
+      "community": 1,
+      "norm_label": "ley de beer (beer's law)"
+    },
+    {
+      "label": "Fresnel",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_shader_de_agua_fresnel",
+      "community": 1,
+      "norm_label": "fresnel"
+    },
+    {
+      "label": "Sincronizaci\u00f3n CPU-GPU de Olas",
+      "file_type": "concept",
+      "source_file": "wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+      "community": 1,
+      "norm_label": "sincronizacion cpu-gpu de olas"
+    },
+    {
+      "label": "\u00cdndice de Conceptos",
+      "file_type": "document",
+      "source_file": "wiki/concepts/_index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_concepts__index",
+      "community": 1,
+      "norm_label": "indice de conceptos"
+    },
+    {
+      "label": "ADR-001 \u2014 Refactor del Shader de Agua",
+      "file_type": "rationale",
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "community": 0,
+      "norm_label": "adr-001 \u2014 refactor del shader de agua"
+    },
+    {
+      "label": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
+      "file_type": "rationale",
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "community": 0,
+      "norm_label": "adr-002 \u2014 estabilizacion player-cube"
+    },
+    {
+      "label": "\u00cdndice de Decisiones",
+      "file_type": "document",
+      "source_file": "wiki/decisions/_index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_decisions__index",
+      "community": 0,
+      "norm_label": "indice de decisiones"
+    },
+    {
+      "label": "Hot Cache",
+      "file_type": "document",
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_hot",
+      "community": 2,
+      "norm_label": "hot cache"
+    },
+    {
+      "label": "\u00cdndice Maestro \u2014 SeaK Wiki",
+      "file_type": "document",
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_index",
+      "community": 0,
+      "norm_label": "indice maestro \u2014 seak wiki"
+    },
+    {
+      "label": "Log de Operaciones",
+      "file_type": "document",
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_log",
+      "community": 0,
+      "norm_label": "log de operaciones"
+    },
+    {
+      "label": "Cube Flotante (Scenes/Cube.gd)",
+      "file_type": "document",
+      "source_file": "wiki/modules/Cube Flotante.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_modules_cube_flotante",
+      "community": 2,
+      "norm_label": "cube flotante (scenes/cube.gd)"
+    },
+    {
+      "label": "Escena World (Scenes/World.tscn)",
+      "file_type": "document",
+      "source_file": "wiki/modules/Escena World.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_modules_escena_world",
+      "community": 2,
+      "norm_label": "escena world (scenes/world.tscn)"
+    },
+    {
+      "label": "Player Controller (Scripts/Player.gd)",
+      "file_type": "document",
+      "source_file": "wiki/modules/Player Controller.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_modules_player_controller",
+      "community": 2,
+      "norm_label": "player controller (scripts/player.gd)"
+    },
+    {
+      "label": "Sistema de Agua (Scenes/Water.gd + Shaders)",
+      "file_type": "document",
+      "source_file": "wiki/modules/Sistema de Agua.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_modules_sistema_de_agua",
+      "community": 2,
+      "norm_label": "sistema de agua (scenes/water.gd + shaders)"
+    },
+    {
+      "label": "\u00cdndice de M\u00f3dulos",
+      "file_type": "document",
+      "source_file": "wiki/modules/_index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_modules__index",
+      "community": 2,
+      "norm_label": "indice de modulos"
+    },
+    {
+      "label": "SeaK \u2014 Resumen de Arquitectura",
+      "file_type": "document",
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_overview",
+      "community": 4,
+      "norm_label": "seak \u2014 resumen de arquitectura"
+    },
+    {
+      "label": "Godot 4.6",
+      "file_type": "concept",
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_overview_godot_4_6",
+      "community": 4,
+      "norm_label": "godot 4.6"
+    },
+    {
+      "label": "Jolt Physics",
+      "file_type": "concept",
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_overview_jolt_physics",
+      "community": 4,
+      "norm_label": "jolt physics"
+    }
+  ],
+  "links": [
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "wiki_hot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "wiki_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "wiki_log"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts__index",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_charactercontroller",
+      "target": "wiki_concepts_charactercontroller_characterbody3d"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_charactercontroller",
+      "target": "wiki_concepts_charactercontroller_rigidbody3d"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_charactercontroller",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_charactercontroller",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/CharacterController.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_charactercontroller",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts__index",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/F\u00edsicas de Flotabilidad.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_f_sicas_de_flotabilidad",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/F\u00edsicas de Flotabilidad.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_f_sicas_de_flotabilidad",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/F\u00edsicas de Flotabilidad.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_f_sicas_de_flotabilidad",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/F\u00edsicas de Flotabilidad.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_f_sicas_de_flotabilidad",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Escena World.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_escena_world",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts__index",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_shader_de_agua",
+      "target": "wiki_concepts_shader_de_agua_fresnel"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_shader_de_agua",
+      "target": "wiki_concepts_shader_de_agua_ley_de_beer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_shader_de_agua",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_shader_de_agua",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_concepts_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts__index",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions__index",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions__index",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_hot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_log"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules__index",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Cube Flotante.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_cube_flotante",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Cube Flotante.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_cube_flotante",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Escena World.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_escena_world",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_modules_cube_flotante"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules__index",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Escena World.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_escena_world",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/Escena World.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules_escena_world",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules__index",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/modules/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_modules__index",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_overview_godot_4_6"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_overview",
+      "target": "wiki_overview_jolt_physics"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "seak_wave_height_pipeline",
+      "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
+      "nodes": [
+        "wiki_concepts_shader_de_agua",
+        "wiki_modules_sistema_de_agua",
+        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+        "wiki_modules_cube_flotante",
+        "wiki_concepts_f_sicas_de_flotabilidad"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/overview.md"
+    },
+    {
+      "id": "seak_player_cube_stabilization",
+      "label": "Player-Cube Stabilization Fix (ADR-002)",
+      "nodes": [
+        "wiki_concepts_charactercontroller",
+        "wiki_concepts_f_sicas_de_flotabilidad",
+        "wiki_decisions_adr_002_estabilizaci_n_player_cube",
+        "wiki_modules_player_controller",
+        "wiki_modules_cube_flotante"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md"
+    },
+    {
+      "id": "seak_water_shader_refactor",
+      "label": "Water Shader Refactor (ADR-001)",
+      "nodes": [
+        "wiki_decisions_adr_001_refactor_del_shader_de_agua",
+        "wiki_concepts_shader_de_agua",
+        "wiki_modules_sistema_de_agua",
+        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
+    }
+  ],
+  "built_at_commit": "35e7be127a1b2fb5003297371e81d883826e77f3"
+}

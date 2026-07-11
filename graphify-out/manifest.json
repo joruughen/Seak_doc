@@ -1,0 +1,122 @@
+{
+  ".obsidian/app.json": {
+    "mtime": 1783792183.414542,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
+  },
+  ".obsidian/appearance.json": {
+    "mtime": 1783792183.4155526,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
+  },
+  ".obsidian/core-plugins.json": {
+    "mtime": 1783792182.9238687,
+    "ast_hash": "7c877bea49eaeabb100563bd157b9051",
+    "semantic_hash": "7c877bea49eaeabb100563bd157b9051"
+  },
+  ".obsidian/graph.json": {
+    "mtime": 1783793959.278,
+    "ast_hash": "4468fa7f807819dd0bba0ae784c340f4",
+    "semantic_hash": "4468fa7f807819dd0bba0ae784c340f4"
+  },
+  ".obsidian/workspace.json": {
+    "mtime": 1783794941.3697193,
+    "ast_hash": "76fea28733c113668eaede6546b8c2da",
+    "semantic_hash": "76fea28733c113668eaede6546b8c2da"
+  },
+  "CLAUDE.md": {
+    "mtime": 1783793370.25975,
+    "ast_hash": "11f5d0331519fe86d46d982716b79c24",
+    "semantic_hash": "11f5d0331519fe86d46d982716b79c24"
+  },
+  "Welcome.md": {
+    "mtime": 1783790898.693693,
+    "ast_hash": "5dce4937496ad2d20178a7578f1a1368",
+    "semantic_hash": "5dce4937496ad2d20178a7578f1a1368"
+  },
+  "wiki/concepts/CharacterController.md": {
+    "mtime": 1783793753.1934545,
+    "ast_hash": "4b78dac9961807e0f6c09d807bab9e66",
+    "semantic_hash": "4b78dac9961807e0f6c09d807bab9e66"
+  },
+  "wiki/concepts/F\u00edsicas de Flotabilidad.md": {
+    "mtime": 1783793695.884485,
+    "ast_hash": "dfffb040f2ecfff025d8f4354d03c754",
+    "semantic_hash": "dfffb040f2ecfff025d8f4354d03c754"
+  },
+  "wiki/concepts/Shader de Agua.md": {
+    "mtime": 1783793717.4310958,
+    "ast_hash": "064cd5b51fb73a64e6c88a6d21721754",
+    "semantic_hash": "064cd5b51fb73a64e6c88a6d21721754"
+  },
+  "wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md": {
+    "mtime": 1783793734.1065252,
+    "ast_hash": "967b6918000f82801948a127634eaf4e",
+    "semantic_hash": "967b6918000f82801948a127634eaf4e"
+  },
+  "wiki/concepts/_index.md": {
+    "mtime": 1783793766.135406,
+    "ast_hash": "59d714f56ddb4ddab2564e7c759fe83c",
+    "semantic_hash": "59d714f56ddb4ddab2564e7c759fe83c"
+  },
+  "wiki/decisions/ADR-001 Refactor del Shader de Agua.md": {
+    "mtime": 1783794177.1592884,
+    "ast_hash": "cb32b3e6ce3b8a0e0888b6da1956a0a8",
+    "semantic_hash": "cb32b3e6ce3b8a0e0888b6da1956a0a8"
+  },
+  "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md": {
+    "mtime": 1783794199.9844277,
+    "ast_hash": "8be8bf48dcb597fd82fc375446d65a91",
+    "semantic_hash": "8be8bf48dcb597fd82fc375446d65a91"
+  },
+  "wiki/decisions/_index.md": {
+    "mtime": 1783794210.0817814,
+    "ast_hash": "933cbc0a8a052c808a442f70ce836518",
+    "semantic_hash": "933cbc0a8a052c808a442f70ce836518"
+  },
+  "wiki/hot.md": {
+    "mtime": 1783794468.8252125,
+    "ast_hash": "dd7c0e01bd8a94f89221f86779f7772c",
+    "semantic_hash": "dd7c0e01bd8a94f89221f86779f7772c"
+  },
+  "wiki/index.md": {
+    "mtime": 1783794212.1464503,
+    "ast_hash": "bd37b7a21d5a116919ed922fe293320b",
+    "semantic_hash": "bd37b7a21d5a116919ed922fe293320b"
+  },
+  "wiki/log.md": {
+    "mtime": 1783794220.7907,
+    "ast_hash": "0cbb39b58bf3854c1cd05b708179d6ba",
+    "semantic_hash": "0cbb39b58bf3854c1cd05b708179d6ba"
+  },
+  "wiki/modules/Cube Flotante.md": {
+    "mtime": 1783793469.0630057,
+    "ast_hash": "7f2ed76234a40de9691009308cecd837",
+    "semantic_hash": "7f2ed76234a40de9691009308cecd837"
+  },
+  "wiki/modules/Escena World.md": {
+    "mtime": 1783793510.0336623,
+    "ast_hash": "b17c439146918892fab6ae649953299b",
+    "semantic_hash": "b17c439146918892fab6ae649953299b"
+  },
+  "wiki/modules/Player Controller.md": {
+    "mtime": 1783793439.9276807,
+    "ast_hash": "01fa453d107a5307d7794fd9e44b3b2e",
+    "semantic_hash": "01fa453d107a5307d7794fd9e44b3b2e"
+  },
+  "wiki/modules/Sistema de Agua.md": {
+    "mtime": 1783793492.2541184,
+    "ast_hash": "1332c540193f52115f43ef767c198d6c",
+    "semantic_hash": "1332c540193f52115f43ef767c198d6c"
+  },
+  "wiki/modules/_index.md": {
+    "mtime": 1783793763.2658553,
+    "ast_hash": "cbfaf81ff8a553e3836ea7219aa62669",
+    "semantic_hash": "cbfaf81ff8a553e3836ea7219aa62669"
+  },
+  "wiki/overview.md": {
+    "mtime": 1783794480.8146744,
+    "ast_hash": "60fce456fedd773d7cb7de3997cadfe8",
+    "semantic_hash": "60fce456fedd773d7cb7de3997cadfe8"
+  }
+}
