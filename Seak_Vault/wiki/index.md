@@ -30,3 +30,8 @@ Wiki de arquitectura del proyecto **SeaK** (Godot 4.6). Empezar por [[overview]]
 ## Decisiones ([[wiki/decisions/_index|índice]])
 - [[ADR-001 Refactor del Shader de Agua]]
 - [[ADR-002 Estabilización Player-Cube]]
+- [[ADR-003 Sistema de Nado, Estamina e Interacción]]
+
+## Diseño ([[wiki/design/_index|índice]])
+- [[Análisis Técnico Prototipo SeaK]]
+- [[Roadmap Prototipo SeaK]]

@@ -38,4 +38,16 @@ updated: 2026-07-11
 
 ## Interacción con la balsa
 
-Ver [[CharacterController]] y [[Físicas de Flotabilidad]]. Estado pre-refactor: el script **no gestiona colisiones contra RigidBody3D** — no transfiere peso ni limita el empuje cinemático, causa central de la inestabilidad al pararse sobre [[Cube Flotante]].
+Ver [[CharacterController]] y [[Físicas de Flotabilidad]]. Resuelto en [[ADR-002 Estabilización Player-Cube]]: transferencia de peso + empuje lateral acotado contra RigidBody3D.
+
+## Nado, estamina e interacción (Fase 1 del roadmap)
+
+Ver [[ADR-003 Sistema de Nado, Estamina e Interacción]] para el detalle completo. Resumen:
+
+- **Máquina de estados** `NORMAL / SWIMMING / CLINGING` (este último scaffolded, sin gameplay hasta Fase 3).
+- **Nado**: detección de agua vía `water.get_height()` en los pies (con histéresis), gravedad reducida, dirección de nado usando el basis completo de la cámara (pitch incluido).
+- **`PlayerStats`** (Node hijo): hp/estamina/hambre; el hambre reduce el techo de estamina, no mata directo (escalón: 100%→100%, 70%→80%, 50%→50%, 20%→30%, 0%→10%).
+- **Salto y sprint drenan estamina**: salto cuesta `jump_stamina_cost=10` fijo por salto; sprint drena `sprint_stamina_cost` por segundo. Sin estamina, ninguno de los dos se ejecuta.
+- **Agarrar/cargar** objetos livianos (masa ≤ 15) con una "mano cinemática" (conduce la velocidad del RigidBody hacia un `HoldPoint` frente a la cámara) en vez de joints.
+- **Empujar sostenido** objetos pesados (masa > 15): `apply_force` continuo en la dirección de la cámara + drenaje de estamina — distinto del empuje pasivo por colisión de `_interact_with_rigid_bodies`.
+- **`DebugHUD`**: barras de hp/estamina/hambre sin arte, conectadas a las señales de `PlayerStats`.

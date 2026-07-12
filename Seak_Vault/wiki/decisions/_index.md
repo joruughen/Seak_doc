@@ -12,3 +12,4 @@ Registro de decisiones de arquitectura y fixes aplicados, con fecha y justificac
 
 - [[ADR-001 Refactor del Shader de Agua]] — consolidación del shader, olas multi-octava, sync `wave_time`
 - [[ADR-002 Estabilización Player-Cube]] — des-escalado del RigidBody, boyancia amortiguada, transferencia de peso
+- [[ADR-003 Sistema de Nado, Estamina e Interacción]] — Fase 1 del roadmap: máquina de estados, nado, PlayerStats, agarrar/empujar

@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c323698d3ed7eac7",
+        "id": "500e8567cc1c789e",
         "type": "tabs",
         "children": [
           {
-            "id": "f50fd5185ce45a2e",
+            "id": "9f5ad9830ac11fa4",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "wiki/design/Roadmap Prototipo SeaK.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Roadmap Prototipo SeaK"
             }
           }
         ]
@@ -179,37 +183,40 @@
       "bases:Create new base": false
     }
   },
-  "active": "f50fd5185ce45a2e",
+  "active": "9f5ad9830ac11fa4",
   "lastOpenFiles": [
-    "graphify-out/cache/semantic/2eadc24def6a8f51442106c965b071606be39527a0e986a78270c644251a2447.json",
-    "graphify-out/cache/semantic/b20144d11cdd95aa94297c158ce7d9d1d0882273e9dda673df016135981d93ac.json",
-    "graphify-out/cache/semantic/c1d686644b31f2b784863aa8ca4a92d6fec5e187fa89699f2e6370fec6d0f91c.json",
-    "graphify-out/cache/semantic/6b59c4de52297469c86238167719b29c1c784edf5324c532354d6280ded6b65c.json",
-    "graphify-out/cache/semantic/e2bf0589e9fb991d06ccec6360b2ddc58dfd799c94fea992fd2a0c171aae8138.json",
-    "graphify-out/cache/semantic/3e1453d1aef9f380e47bc5dfa42052b234f0106c0219c6698ed2b5ac291b4e47.json",
-    "graphify-out/cache/semantic/b641f034ad8971a6da0461ab2c5a80e3c843c66a29239b75ddab848441e50315.json",
-    "graphify-out/cache/semantic/ba0d0ad76c0681aa9cd8b7d115aa9dbafb1ac0086d3e0adf73eed3732f2fe585.json",
-    "graphify-out/cache/semantic/7502e036f700985edd06eebf5fc502d700df4df2bdee63cc7a60a7b8ebe85e64.json",
-    "graphify-out/cache/semantic/0d37947fff0b28f449b043331d85d1b85236dbc74541cb30a488c18378643a23.json",
-    "graphify-out/cache/semantic/c3d8ef41124d6e223802f2caaf9221e88892852663427e268b23e9c57ad8cca8.json",
+    "wiki/design/Análisis Técnico Prototipo SeaK.md",
+    "wiki/design/Roadmap Prototipo SeaK.md",
+    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+    "wiki/overview.md",
+    "wiki/index.md",
+    "wiki/log.md.tmp.2640.db199653c5cf",
+    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md.tmp.2640.9bd99e284c30",
+    "wiki/log.md.tmp.2640.3dfd83c6af5c",
+    "wiki/log.md.tmp.2640.07cc6da38eaa",
+    "wiki/log.md.tmp.2640.56979e4ea9a6",
+    "wiki/index.md.tmp.2640.4d34fe195215",
+    "wiki/concepts/Shader de Agua.md",
+    "wiki/modules/Cube Flotante.md",
+    "wiki/concepts/Físicas de Flotabilidad.md",
+    "graphify-out/cache/semantic/145304de1c2a99fe23e947fa2b5f01087efd4dfa81c978f01559a3bb99a5f8a3.json",
+    "graphify-out/cache/semantic/8f5ee00b4e0a0d4cece6d536d05fe60610353a1998e1f2a303323d40889e312c.json",
+    "graphify-out/cache/semantic/478fa1e866f1ad22be97c2dc10f9eae3532a76ec9a5102afd183e43ff28618c6.json",
+    "graphify-out/cache/semantic/123af98d1152c7a43abdf78dc600eca44858804f2aa8b68e5aca606b9d2c4785.json",
+    "wiki/design/_index.md",
     "wiki/decisions/ADR-002 Estabilización Player-Cube.md",
     "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
-    "wiki/concepts/Shader de Agua.md",
     "wiki/concepts/CharacterController.md",
     "CLAUDE.md",
     "Welcome.md",
     "wiki/hot.md",
     "wiki/log.md",
-    "wiki/index.md",
     "wiki/decisions/_index.md",
     "wiki/concepts/_index.md",
     "wiki/modules/_index.md",
     "wiki/concepts/Sincronización CPU-GPU de Olas.md",
-    "wiki/concepts/Físicas de Flotabilidad.md",
     "wiki/modules/Escena World.md",
     "wiki/modules/Sistema de Agua.md",
-    "wiki/modules/Cube Flotante.md",
-    "wiki/modules/Player Controller.md",
-    "wiki/overview.md"
+    "wiki/modules/Player Controller.md"
   ]
 }

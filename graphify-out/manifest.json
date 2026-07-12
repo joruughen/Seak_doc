@@ -1,33 +1,33 @@
 {
   ".obsidian/app.json": {
-    "mtime": 1783792183.414542,
+    "mtime": 1783831090.581102,
     "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
     "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
   },
   ".obsidian/appearance.json": {
-    "mtime": 1783792183.4155526,
+    "mtime": 1783831090.5814846,
     "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
     "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
   },
   ".obsidian/core-plugins.json": {
-    "mtime": 1783792182.9238687,
+    "mtime": 1783831090.1401682,
     "ast_hash": "7c877bea49eaeabb100563bd157b9051",
     "semantic_hash": "7c877bea49eaeabb100563bd157b9051"
   },
   ".obsidian/graph.json": {
-    "mtime": 1783793959.278,
+    "mtime": 1783831093.323,
     "ast_hash": "4468fa7f807819dd0bba0ae784c340f4",
     "semantic_hash": "4468fa7f807819dd0bba0ae784c340f4"
   },
   ".obsidian/workspace.json": {
-    "mtime": 1783794941.3697193,
-    "ast_hash": "76fea28733c113668eaede6546b8c2da",
-    "semantic_hash": "76fea28733c113668eaede6546b8c2da"
+    "mtime": 1783831906.0853384,
+    "ast_hash": "2a7b82b64d03258e3d4bff1a46bda6c2",
+    "semantic_hash": "2a7b82b64d03258e3d4bff1a46bda6c2"
   },
   "CLAUDE.md": {
-    "mtime": 1783793370.25975,
-    "ast_hash": "11f5d0331519fe86d46d982716b79c24",
-    "semantic_hash": "11f5d0331519fe86d46d982716b79c24"
+    "mtime": 1783831417.813047,
+    "ast_hash": "7a020f00c43b652650d498fd71d079f4",
+    "semantic_hash": "7a020f00c43b652650d498fd71d079f4"
   },
   "Welcome.md": {
     "mtime": 1783790898.693693,
@@ -75,19 +75,19 @@
     "semantic_hash": "933cbc0a8a052c808a442f70ce836518"
   },
   "wiki/hot.md": {
-    "mtime": 1783794468.8252125,
-    "ast_hash": "dd7c0e01bd8a94f89221f86779f7772c",
-    "semantic_hash": "dd7c0e01bd8a94f89221f86779f7772c"
+    "mtime": 1783831415.5400772,
+    "ast_hash": "31400419b368f5208f3ee41ed6b2550f",
+    "semantic_hash": "31400419b368f5208f3ee41ed6b2550f"
   },
   "wiki/index.md": {
-    "mtime": 1783794212.1464503,
-    "ast_hash": "bd37b7a21d5a116919ed922fe293320b",
-    "semantic_hash": "bd37b7a21d5a116919ed922fe293320b"
+    "mtime": 1783831391.7573335,
+    "ast_hash": "12748a40d7d7a422340dc9c5d28ef7b6",
+    "semantic_hash": "12748a40d7d7a422340dc9c5d28ef7b6"
   },
   "wiki/log.md": {
-    "mtime": 1783794220.7907,
-    "ast_hash": "0cbb39b58bf3854c1cd05b708179d6ba",
-    "semantic_hash": "0cbb39b58bf3854c1cd05b708179d6ba"
+    "mtime": 1783831397.5188437,
+    "ast_hash": "090ae7fb2297f9b43b88bde8a1295475",
+    "semantic_hash": "090ae7fb2297f9b43b88bde8a1295475"
   },
   "wiki/modules/Cube Flotante.md": {
     "mtime": 1783793469.0630057,
@@ -118,5 +118,20 @@
     "mtime": 1783794480.8146744,
     "ast_hash": "60fce456fedd773d7cb7de3997cadfe8",
     "semantic_hash": "60fce456fedd773d7cb7de3997cadfe8"
+  },
+  "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md": {
+    "mtime": 1783831312.9188309,
+    "ast_hash": "b6d203b0cca346d426940aa62de0903a",
+    "semantic_hash": "b6d203b0cca346d426940aa62de0903a"
+  },
+  "wiki/design/Roadmap Prototipo SeaK.md": {
+    "mtime": 1783831376.3028445,
+    "ast_hash": "c9c109f49ff833a7cffb04e369af0d0f",
+    "semantic_hash": "c9c109f49ff833a7cffb04e369af0d0f"
+  },
+  "wiki/design/_index.md": {
+    "mtime": 1783831388.8545163,
+    "ast_hash": "fc98eec982dbda8a4e24f8f2bf877419",
+    "semantic_hash": "fc98eec982dbda8a4e24f8f2bf877419"
   }
 }

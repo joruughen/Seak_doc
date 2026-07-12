@@ -22,6 +22,7 @@ Seak_Vault/
 │   ├── modules/       # una nota por script/escena mayor (Player, Cube, Water)
 │   ├── concepts/      # conceptos técnicos (flotabilidad, shaders, sync CPU-GPU)
 │   ├── decisions/     # decisiones de arquitectura y fixes aplicados (ADRs)
+│   ├── design/        # diseño del juego: análisis técnico, roadmap por fases
 │   └── flows/         # flujos: física por frame, pipeline de render del agua
 └── CLAUDE.md
 ```

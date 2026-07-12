@@ -4,19 +4,18 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "seak_wave_height_pipeline",
-        "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
+        "id": "seak_water_shader_refactor",
+        "label": "Water Shader Refactor (ADR-001)",
         "nodes": [
+          "wiki_decisions_adr_001_refactor_del_shader_de_agua",
           "wiki_concepts_shader_de_agua",
           "wiki_modules_sistema_de_agua",
-          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
-          "wiki_modules_cube_flotante",
-          "wiki_concepts_f_sicas_de_flotabilidad"
+          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
         ],
-        "relation": "participate_in",
+        "relation": "form",
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
-        "source_file": "wiki/overview.md"
+        "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
       },
       {
         "id": "seak_player_cube_stabilization",
@@ -34,18 +33,61 @@
         "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md"
       },
       {
-        "id": "seak_water_shader_refactor",
-        "label": "Water Shader Refactor (ADR-001)",
+        "id": "seak_wave_height_pipeline",
+        "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
         "nodes": [
-          "wiki_decisions_adr_001_refactor_del_shader_de_agua",
           "wiki_concepts_shader_de_agua",
           "wiki_modules_sistema_de_agua",
-          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+          "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+          "wiki_modules_cube_flotante",
+          "wiki_concepts_f_sicas_de_flotabilidad"
         ],
-        "relation": "form",
+        "relation": "participate_in",
         "confidence": "EXTRACTED",
         "confidence_score": 1.0,
-        "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
+        "source_file": "wiki/overview.md"
+      },
+      {
+        "id": "modular_boat_pipeline",
+        "label": "Pipeline del Bote Modular (dato \u2192 f\u00edsica \u2192 rotura)",
+        "nodes": [
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
+      },
+      {
+        "id": "survival_death_loop",
+        "label": "Loop de Supervivencia y Muerte Asim\u00e9trica",
+        "nodes": [
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
+      },
+      {
+        "id": "emergent_propulsion_pattern",
+        "label": "Propulsi\u00f3n Emergente por apply_force(F, offset)",
+        "nodes": [
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+          "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
       }
     ]
   },
@@ -57,21 +99,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "obsidian_app",
-      "community": 5,
+      "community": 6,
       "norm_label": "app.json"
-    },
-    {
-      "label": "SeaK Wiki \u2014 CLAUDE.md (Vault Config)",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "claude_md",
-      "community": 0,
-      "norm_label": "seak wiki \u2014 claude.md (vault config)"
     },
     {
       "label": "Welcome (Obsidian Default Note)",
@@ -83,7 +112,7 @@
       "author": null,
       "contributor": null,
       "id": "welcome",
-      "community": 6,
+      "community": 7,
       "norm_label": "welcome (obsidian default note)"
     },
     {
@@ -96,7 +125,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_charactercontroller",
-      "community": 3,
+      "community": 5,
       "norm_label": "charactercontroller"
     },
     {
@@ -109,7 +138,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_charactercontroller_characterbody3d",
-      "community": 3,
+      "community": 5,
       "norm_label": "characterbody3d"
     },
     {
@@ -122,7 +151,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_charactercontroller_rigidbody3d",
-      "community": 3,
+      "community": 5,
       "norm_label": "rigidbody3d"
     },
     {
@@ -135,7 +164,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_f_sicas_de_flotabilidad",
-      "community": 1,
+      "community": 0,
       "norm_label": "fisicas de flotabilidad"
     },
     {
@@ -148,7 +177,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_shader_de_agua",
-      "community": 1,
+      "community": 4,
       "norm_label": "shader de agua"
     },
     {
@@ -161,7 +190,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_shader_de_agua_ley_de_beer",
-      "community": 1,
+      "community": 4,
       "norm_label": "ley de beer (beer's law)"
     },
     {
@@ -174,7 +203,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_shader_de_agua_fresnel",
-      "community": 1,
+      "community": 4,
       "norm_label": "fresnel"
     },
     {
@@ -187,7 +216,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
-      "community": 1,
+      "community": 4,
       "norm_label": "sincronizacion cpu-gpu de olas"
     },
     {
@@ -200,7 +229,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_concepts__index",
-      "community": 1,
+      "community": 4,
       "norm_label": "indice de conceptos"
     },
     {
@@ -213,7 +242,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_decisions_adr_001_refactor_del_shader_de_agua",
-      "community": 0,
+      "community": 1,
       "norm_label": "adr-001 \u2014 refactor del shader de agua"
     },
     {
@@ -226,7 +255,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_decisions_adr_002_estabilizaci_n_player_cube",
-      "community": 0,
+      "community": 1,
       "norm_label": "adr-002 \u2014 estabilizacion player-cube"
     },
     {
@@ -239,47 +268,8 @@
       "author": null,
       "contributor": null,
       "id": "wiki_decisions__index",
-      "community": 0,
+      "community": 1,
       "norm_label": "indice de decisiones"
-    },
-    {
-      "label": "Hot Cache",
-      "file_type": "document",
-      "source_file": "wiki/hot.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "wiki_hot",
-      "community": 2,
-      "norm_label": "hot cache"
-    },
-    {
-      "label": "\u00cdndice Maestro \u2014 SeaK Wiki",
-      "file_type": "document",
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "wiki_index",
-      "community": 0,
-      "norm_label": "indice maestro \u2014 seak wiki"
-    },
-    {
-      "label": "Log de Operaciones",
-      "file_type": "document",
-      "source_file": "wiki/log.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "wiki_log",
-      "community": 0,
-      "norm_label": "log de operaciones"
     },
     {
       "label": "Cube Flotante (Scenes/Cube.gd)",
@@ -291,7 +281,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_modules_cube_flotante",
-      "community": 2,
+      "community": 0,
       "norm_label": "cube flotante (scenes/cube.gd)"
     },
     {
@@ -304,7 +294,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_modules_escena_world",
-      "community": 2,
+      "community": 0,
       "norm_label": "escena world (scenes/world.tscn)"
     },
     {
@@ -317,7 +307,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_modules_player_controller",
-      "community": 2,
+      "community": 0,
       "norm_label": "player controller (scripts/player.gd)"
     },
     {
@@ -330,7 +320,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_modules_sistema_de_agua",
-      "community": 2,
+      "community": 0,
       "norm_label": "sistema de agua (scenes/water.gd + shaders)"
     },
     {
@@ -343,7 +333,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_modules__index",
-      "community": 2,
+      "community": 0,
       "norm_label": "indice de modulos"
     },
     {
@@ -356,7 +346,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_overview",
-      "community": 4,
+      "community": 0,
       "norm_label": "seak \u2014 resumen de arquitectura"
     },
     {
@@ -369,7 +359,7 @@
       "author": null,
       "contributor": null,
       "id": "wiki_overview_godot_4_6",
-      "community": 4,
+      "community": 0,
       "norm_label": "godot 4.6"
     },
     {
@@ -382,51 +372,244 @@
       "author": null,
       "contributor": null,
       "id": "wiki_overview_jolt_physics",
-      "community": 4,
+      "community": 0,
       "norm_label": "jolt physics"
+    },
+    {
+      "label": "CLAUDE.md \u2014 SeaK Wiki Config",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Jorge Melgarejo",
+      "contributor": null,
+      "id": "claude",
+      "community": 1,
+      "norm_label": "claude.md \u2014 seak wiki config"
+    },
+    {
+      "label": "An\u00e1lisis T\u00e9cnico Prototipo SeaK",
+      "file_type": "document",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Claude + Jorge",
+      "contributor": null,
+      "rationale": "Party game cooperativo (2-4) roguelike: el barco no tiene vida global, la supervivencia depende de las piezas. F\u00edsica real barata como diferenciador frente a Raft (que no simula boyancia real). Los 6 sistemas extienden tres pilares ya validados (flotabilidad por sondas, sync CPU-GPU de olas, CharacterController) en lugar de partir de cero. Incluye tabla de 7 objetos de prueba (barril, puerta, pal\u00e9, nevera, chapa, neum\u00e1tico, tubo PVC) y riesgos: migraci\u00f3n de shapes en runtime, bug godot#78750 (nunca inercia custom con COM custom), re-resoluci\u00f3n de plataforma al partirse el bote, multiplayer diferido.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "community": 2,
+      "norm_label": "analisis tecnico prototipo seak"
+    },
+    {
+      "label": "Roadmap Prototipo SeaK",
+      "file_type": "document",
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Claude + Jorge",
+      "contributor": null,
+      "rationale": "Plan por fases incrementales (Fase 0 \u2705 fundaciones \u2192 Fase 6 loop roguelike); cada fase termina con algo jugable/testeable (DoD). El orden ataca el riesgo t\u00e9cnico primero: migraci\u00f3n de shapes en runtime (Fase 2, probada en tierra) y fragmentaci\u00f3n (Fase 4) son lo \u00fanico genuinamente dif\u00edcil; el resto extiende patrones validados en ADR-001/ADR-002. Fuera de alcance expl\u00edcito: multiplayer en red, arte final, clima din\u00e1mico, IA real de enemigos.",
+      "id": "wiki_design_roadmap_prototipo_seak",
+      "community": 3,
+      "norm_label": "roadmap prototipo seak"
+    },
+    {
+      "label": "\u00cdndice de Dise\u00f1o",
+      "file_type": "document",
+      "source_file": "wiki/design/_index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_design__index",
+      "community": 1,
+      "norm_label": "indice de diseno"
+    },
+    {
+      "label": "Hot Cache",
+      "file_type": "document",
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-07-11T16:00:00",
+      "author": null,
+      "contributor": null,
+      "id": "wiki_hot",
+      "community": 1,
+      "norm_label": "hot cache"
+    },
+    {
+      "label": "\u00cdndice Maestro \u2014 SeaK Wiki",
+      "file_type": "document",
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_index",
+      "community": 1,
+      "norm_label": "indice maestro \u2014 seak wiki"
+    },
+    {
+      "label": "Log de Operaciones",
+      "file_type": "document",
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "wiki_log",
+      "community": 1,
+      "norm_label": "log de operaciones"
+    },
+    {
+      "label": "BoatManager",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Script sobre un \u00fanico RigidBody3D compuesto por embarcaci\u00f3n: el bote es un dato (grafo de conexiones) + un contenedor f\u00edsico generado bajo demanda. G\u00e9nesis al soldar dos piezas sueltas: migrar mesh+shape, liberar cuerpos, transferir linear_velocity ponderada por masa para evitar tirones, recalcular masa/COM/sondas. Scene tree plano bajo el BoatBody para evitar cadenas de transforms. Red-compatible: centraliza autoridad para un futuro server-authoritative post-prototipo.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+      "community": 2,
+      "norm_label": "boatmanager"
+    },
+    {
+      "label": "ConnectionGraph",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "La verdad estructural del bote es el grafo (Dictionary piece_id \u2192 vecinos soldados), no el scene tree: la topolog\u00eda vive solo en el grafo, mantenido por el BoatManager en cada weld/rotura. Es el dato que consume la fragmentaci\u00f3n por componentes conexas.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph",
+      "community": 2,
+      "norm_label": "connectiongraph"
+    },
+    {
+      "label": "Flotabilidad Modular",
+      "file_type": "rationale",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Decisi\u00f3n central: un solo RigidBody3D por embarcaci\u00f3n (cuerpo compuesto), nunca un RigidBody por pieza con joints \u2014 en Jolt las cadenas de joints necesitan 8-12 iteraciones de solver y son fr\u00e1giles con 10+ cuerpos; el cuerpo compuesto es nativo, estable y O(1) por bote. Cada pieza aporta 1-4 sondas con buoyancy_factor (barril 2.5, madera ~1.2, metal 0.3); la fuerza se aplica en la posici\u00f3n de la sonda (apply_force(F, offset)) \u2192 escora, balance de peso y torque emergen solos sin c\u00f3digo extra. Mantiene la f\u00f3rmula ya tuneada k\u00b7depth normalizada por masa + amortiguaci\u00f3n \u2212c\u00b7v_y. Presupuesto: 4 botes \u00d7 ~30 piezas a 60 Hz, cap ~48 sondas/bote. Regla anti godot#78750: setear solo masa y COM custom, nunca inercia custom.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+      "community": 2,
+      "norm_label": "flotabilidad modular"
+    },
+    {
+      "label": "Fragmentaci\u00f3n por Componentes Conexas (BFS)",
+      "file_type": "rationale",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "HP por pieza + da\u00f1o por impulso de contacto (get_contact_impulse, mapa shape_index \u2192 pieza) + partici\u00f3n estructural: al morir una pieza se elimina su v\u00e9rtice del ConnectionGraph y un BFS/flood-fill O(V+E) lista las componentes conexas el mismo frame. La componente mayor conserva el BoatManager original (velocidades intactas); las extra reciben BoatManager nuevo con v = v_original + \u03c9 \u00d7 r; componentes de 1 pieza degradan a LoosePiece (bot\u00edn flotante). Patr\u00f3n est\u00e1ndar de Besiege/Trailmakers: la estructura es un grafo, la rotura es teor\u00eda de grafos, la f\u00edsica solo recibe el resultado. Sin vida global del barco, como pide el dise\u00f1o.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+      "community": 2,
+      "norm_label": "fragmentacion por componentes conexas (bfs)"
+    },
+    {
+      "label": "RowingStation",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Navegaci\u00f3n primaria: Marker3D (asiento) + Area3D colocable en piezas planas. Remar = apply_force(dir \u00b7 F(estamina, ritmo), station_offset) \u2014 sin motor central falso: remar solo a la derecha gira el bote a la izquierda porque la fuerza est\u00e1 fuera del COM, f\u00edsica pura igual que las sondas. El input r\u00edtmico (mantener/soltar al comp\u00e1s) rinde m\u00e1s que spamear: coordinar el ritmo entre 2-4 jugadores es el chiste cooperativo.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+      "community": 3,
+      "norm_label": "rowingstation"
+    },
+    {
+      "label": "Pataleo / Clinging",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Navegaci\u00f3n de emergencia: piezas planas exponen bordes grabbable_edge (Area3D fina en el per\u00edmetro); el nadador que agarra pasa a estado Clinging y sigue cinem\u00e1ticamente el punto del bote (mismo patr\u00f3n de plataforma m\u00f3vil del CharacterController). Patalear = apply_force peque\u00f1o en el punto de agarre + drenaje r\u00e1pido de estamina: suficiente para sacar un bote de una corriente, insostenible como propulsi\u00f3n.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging",
+      "community": 3,
+      "norm_label": "pataleo / clinging"
+    },
+    {
+      "label": "PlayerStats",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Node hijo del Player con hp, stamina, hunger y la regla dura stamina_max = base \u00b7 f(hunger): el hambre no mata directo, encoge el tanque de estamina \u2014 presi\u00f3n sist\u00e9mica del core loop. Alimenta la m\u00e1quina de estados del Player (Normal \u21c4 Swimming \u21c4 Clinging; Swimming + stamina=0 \u2192 Drowning \u2192 N\u00e1ufragoCr\u00edtico; hp=0 \u2192 DeadSpectator), observada por el autoload RunManager para el game over roguelike.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats",
+      "community": 3,
+      "norm_label": "playerstats"
+    },
+    {
+      "label": "N\u00e1ufrago Cr\u00edtico",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Estado terminal por ahogo (stamina 0 nadando): pierde TODO el inventario, velocidad \u00d70.5, no construye ni usa estatuas; se cura cuando un aliado le da comida del inventario del barco. El anti-exploit queda codificado en las condiciones, no en reglas ad-hoc: un jugador que se deja ahogar jam\u00e1s puede revivir barato al equipo ni saltarse el nivel. Arrastre a la orilla del siguiente destino por cinem\u00e1tica pura (Tween/PathFollow3D).",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico",
+      "community": 3,
+      "norm_label": "naufrago critico"
+    },
+    {
+      "label": "Estatua de Resurrecci\u00f3n",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Area3D en cada isla, interactuable solo por vivos no-n\u00e1ufragos: los aliados vivos pagan materiales del barco (costo inicial: 2 chatarra + 1 madera + 1 comida) para revivir a un muerto-espectador. Como revivir cuesta materiales del barco, morirse tiene precio colectivo \u2014 suficientemente caro para doler, no tanto como para abandonar la run. Funciona como checkpoint del viaje en el loop roguelike.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n",
+      "community": 3,
+      "norm_label": "estatua de resurreccion"
+    },
+    {
+      "label": "LoosePiece / AttachedPiece",
+      "file_type": "concept",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Dos estados por pieza: LoosePiece = RigidBody3D individual que flota solo con 1 sonda (en la playa, escombro en el mar); AttachedPiece = Node3D + CollisionShape3D bajo el BoatBody (soldada al cuerpo compuesto). Cada arquetipo lleva un resource PieceData (mass, buoyancy_factor, hp, flags: walkable, grabbable_edge, storage, bumper, armor). La degradaci\u00f3n de componentes de 1 pieza a LoosePiece hace que el naufragio deje bot\u00edn recolectable.",
+      "id": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece",
+      "community": 2,
+      "norm_label": "loosepiece / attachedpiece"
     }
   ],
   "links": [
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "wiki_hot"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "wiki_index"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "wiki_log"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "wiki_overview"
-    },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
@@ -501,10 +684,30 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging",
+      "target": "wiki_concepts_charactercontroller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
       "target": "wiki_concepts_charactercontroller"
     },
     {
@@ -601,10 +804,30 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+      "target": "wiki_concepts_f_sicas_de_flotabilidad"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
       "target": "wiki_concepts_f_sicas_de_flotabilidad"
     },
     {
@@ -711,16 +934,6 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_hot",
-      "target": "wiki_concepts_shader_de_agua"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "wiki/index.md",
       "source_location": null,
       "weight": 1.0,
@@ -791,10 +1004,30 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+      "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
       "target": "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
     },
     {
@@ -861,6 +1094,26 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_decisions_adr_001_refactor_del_shader_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "wiki/hot.md",
       "source_location": null,
       "weight": 1.0,
@@ -941,6 +1194,36 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_decisions_adr_002_estabilizaci_n_player_cube"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "wiki/hot.md",
       "source_location": null,
       "weight": 1.0,
@@ -981,71 +1264,31 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
       "target": "wiki_modules_cube_flotante"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
-      "target": "wiki_modules_escena_world"
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+      "target": "wiki_modules_cube_flotante"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "wiki_hot",
-      "target": "wiki_modules_player_controller"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_hot",
-      "target": "wiki_modules_sistema_de_agua"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/hot.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_hot",
-      "target": "wiki_overview"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_hot"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_log"
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_modules_cube_flotante"
     },
     {
       "relation": "references",
@@ -1061,91 +1304,11 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_modules_escena_world"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_modules_player_controller"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_modules_sistema_de_agua"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/index.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_index",
-      "target": "wiki_overview"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "wiki/log.md",
       "source_location": null,
       "weight": 1.0,
       "source": "wiki_log",
       "target": "wiki_modules_cube_flotante"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/log.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_log",
-      "target": "wiki_modules_escena_world"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/log.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_log",
-      "target": "wiki_modules_player_controller"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/log.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_log",
-      "target": "wiki_modules_sistema_de_agua"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "wiki/log.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "wiki_log",
-      "target": "wiki_overview"
     },
     {
       "relation": "references",
@@ -1201,6 +1364,26 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_escena_world"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "wiki/modules/_index.md",
       "source_location": null,
       "weight": 1.0,
@@ -1241,6 +1424,36 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_player_controller"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "wiki/modules/_index.md",
       "source_location": null,
       "weight": 1.0,
@@ -1261,6 +1474,26 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "wiki/modules/_index.md",
       "source_location": null,
       "weight": 1.0,
@@ -1276,6 +1509,56 @@
       "weight": 1.0,
       "source": "wiki_overview",
       "target": "wiki_modules_sistema_de_agua"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_overview"
     },
     {
       "relation": "references",
@@ -1296,23 +1579,522 @@
       "weight": 1.0,
       "source": "wiki_overview",
       "target": "wiki_overview_jolt_physics"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude",
+      "target": "wiki_hot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude",
+      "target": "wiki_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude",
+      "target": "wiki_log"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design__index",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak",
+      "target": "wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/_index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design__index",
+      "target": "wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/Roadmap Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_design__index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_design__index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_log",
+      "target": "wiki_design__index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_hot",
+      "target": "wiki_log"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_index",
+      "target": "wiki_log"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico",
+      "target": "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n"
     }
   ],
   "hyperedges": [
     {
-      "id": "seak_wave_height_pipeline",
-      "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
+      "id": "seak_water_shader_refactor",
+      "label": "Water Shader Refactor (ADR-001)",
       "nodes": [
+        "wiki_decisions_adr_001_refactor_del_shader_de_agua",
         "wiki_concepts_shader_de_agua",
         "wiki_modules_sistema_de_agua",
-        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
-        "wiki_modules_cube_flotante",
-        "wiki_concepts_f_sicas_de_flotabilidad"
+        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
       ],
-      "relation": "participate_in",
+      "relation": "form",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/overview.md"
+      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
     },
     {
       "id": "seak_player_cube_stabilization",
@@ -1330,19 +2112,62 @@
       "source_file": "wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md"
     },
     {
-      "id": "seak_water_shader_refactor",
-      "label": "Water Shader Refactor (ADR-001)",
+      "id": "seak_wave_height_pipeline",
+      "label": "SeaK Wave Height Pipeline (GPU display to CPU buoyancy)",
       "nodes": [
-        "wiki_decisions_adr_001_refactor_del_shader_de_agua",
         "wiki_concepts_shader_de_agua",
         "wiki_modules_sistema_de_agua",
-        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas"
+        "wiki_concepts_sincronizaci_n_cpu_gpu_de_olas",
+        "wiki_modules_cube_flotante",
+        "wiki_concepts_f_sicas_de_flotabilidad"
       ],
-      "relation": "form",
+      "relation": "participate_in",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "wiki/decisions/ADR-001 Refactor del Shader de Agua.md"
+      "source_file": "wiki/overview.md"
+    },
+    {
+      "id": "modular_boat_pipeline",
+      "label": "Pipeline del Bote Modular (dato \u2192 f\u00edsica \u2192 rotura)",
+      "nodes": [
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_boatmanager",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_connectiongraph",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_fragmentaci_n_bfs",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_loosepiece_attachedpiece"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
+    },
+    {
+      "id": "survival_death_loop",
+      "label": "Loop de Supervivencia y Muerte Asim\u00e9trica",
+      "nodes": [
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_n_ufrago_cr_tico",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_estatua_de_resurrecci_n"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
+    },
+    {
+      "id": "emergent_propulsion_pattern",
+      "label": "Propulsi\u00f3n Emergente por apply_force(F, offset)",
+      "nodes": [
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_rowingstation",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_pataleo_clinging",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_flotabilidad_modular",
+        "wiki_design_an_lisis_t_cnico_prototipo_seak_playerstats"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md"
     }
   ],
-  "built_at_commit": "35e7be127a1b2fb5003297371e81d883826e77f3"
+  "built_at_commit": "d7d607609b615d8a1487c7927d41adeac4af3c28"
 }
