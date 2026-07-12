@@ -10,6 +10,13 @@ tags: [log]
 
 <!-- append-only: entradas nuevas ARRIBA -->
 
+## 2026-07-12 — Fix: el objeto cargado se quedaba atrás al moverse/girar la cámara
+- Bug legítimo de la Fase 1 (sistema de carga ya implementado en [[ADR-003 Sistema de Nado, Estamina e Interacción]]), no dependiente de fases futuras — se arregló ahora.
+- Causa: `_update_held_body` fijaba `linear_velocity = (to_target / delta)`, que intenta cerrar TODA la distancia al `HoldPoint` en un solo frame de física — a 60 Hz eso exige velocidades enormes para cualquier separación real, tope (`carry_speed_limit=6.0`) que se activaba constantemente al caminar/girar la cámara rápido. El objeto se quedaba atrás y solo alcanzaba al detenerse el jugador.
+- Cuantificado con un test aislado headless: con la fórmula vieja, a 10 m/s de movimiento del punto de sostén, el objeto quedaba 4 unidades atrás y tardaba ~1s en alcanzar tras detenerse.
+- Fix: control proporcional (`velocity = to_target * carry_catch_up_rate`, tasa=15/s) en vez de dividir por delta; tope de seguridad subido a `carry_speed_limit=12.0` (ya no es el mecanismo principal de control, solo un límite de emergencia). Mismo test: rezago durante movimiento baja a 0.5 unidades, converge en ~0.3s tras detenerse.
+- Validado: `--check-only`, import headless, 180 frames de runtime.
+
 ## 2026-07-12 — Diagnóstico: colisión Player↔Cube inestable bajo movimiento errático (anotado, diferido a Fase 2/3)
 - Bug reportado: parado/nadando sobre el Cube semihundido, moverse hace que el bote "nade contigo" y acelere hasta romperse; persistía incluso tras los fixes de exclusión-de-colisión-al-cargar y skip-durante-swim de la sesión anterior.
 - Diagnóstico con 3 tests aislados en Godot headless (movimiento errático simulando mouse-look real): (1) el motor no empuja RigidBody3D por colisión de CharacterBody3D por sí solo; (2) con `_interact_with_rigid_bodies` completamente desactivado, el Cube explota igual — no es nuestro código de fuerzas; (3) con una excepción de colisión permanente Player↔Cube, el sistema es perfectamente estable.

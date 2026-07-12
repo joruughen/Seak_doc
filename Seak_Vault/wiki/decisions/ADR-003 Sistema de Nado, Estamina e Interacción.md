@@ -77,9 +77,24 @@ Validado de nuevo: `--check-only`, import headless, 180 frames de runtime.
 Dos bugs adicionales, uno de la propia Fase 1 (omisión), otro de integración entre sistemas de fases distintas nunca probados juntos:
 
 1. **El objeto cargado rotaba al girar la cámara**: el `HoldPoint` está fijo frente a la cámara, así que girar la cámara barre un arco — el objeto sostenido (ej. el Barril) chocaba contra la propia cápsula del jugador en ese arco, generando torque no deseado. Faltaba lo obvio: excluir esa colisión mientras dura el agarre. Fix: `_grab(body)` llama `add_collision_exception_with` en ambos sentidos (jugador↔objeto); `_release_held_body()` la revierte al soltar (o si el objeto se invalida mientras se sostiene).
-2. **El Cube se disparaba a velocidades absurdas nadando parado encima suyo semihundido**: `_interact_with_rigid_bodies` (transferencia de peso de [[ADR-002 Estabilización Player-Cube]]) corría sin importar el estado del Player. Con el bote parcialmente hundido, los pies del jugador entran en zona de nado (`SWIMMING`) mientras la cápsula sigue tocando el Cube; el agua ya sostiene el peso del jugador en ese estado, así que sumarle ADEMÁS el peso completo (`player_mass*gravity` ≈ 686N) en un punto de contacto que cambia erráticamente por el movimiento libre de nado (sin `is_on_floor()`, sin fricción de piso) entraba en resonancia con el resorte-amortiguador de boyancia de [[Cube Flotante]] y disparaba velocidades crecientes sin control. Fix: `_interact_with_rigid_bodies` se salta por completo mientras `current_state == SWIMMING` — en tierra/de pie sigue funcionando igual que antes.
+2. **El Cube se disparaba a velocidades absurdas nadando parado encima suyo semihundido**: `_interact_with_rigid_bodies` (transferencia de peso de [[ADR-002 Estabilización Player-Cube]]) corría sin importar el estado del Player. Fix inicial (luego revertido, ver más abajo): `_interact_with_rigid_bodies` se saltaba por completo mientras `current_state == SWIMMING`.
 
 Ninguno de los dos estaba anotado en [[Roadmap Prototipo SeaK]] como tarea: el primero era una omisión de la Fase 1 ya implementada; el segundo, un caso de integración entre Fase 0 (boyancia) y Fase 1 (nado) que no se había probado en conjunto hasta ahora.
+
+Validado: `--check-only`, import headless, 180 frames de runtime.
+
+> [!contradiction] El fix #2 de arriba quedó revertido
+> El gate por `current_state == SWIMMING` se sacó después: un diagnóstico más profundo (ver [[Análisis Técnico Prototipo SeaK]] riesgo 5) encontró que un gate binario por estado puede prenderse/apagarse en sincronía con el propio rebote del bote y **bombear energía en vez de amortiguarla** (resonancia) — y que la causa real de fondo no era esta función en absoluto, sino la colisión física nativa Player↔Cube. Se agregó damping + suavizado del punto de apoyo a `_interact_with_rigid_bodies` (queda gateada solo por colisión real, no por estado), pero el problema de fondo sigue abierto y diferido a Fase 2/3.
+
+## Fix: el objeto cargado se quedaba atrás al moverse/girar la cámara (2026-07-12)
+
+Bug legítimo de la Fase 1 (parte del sistema de carga de arriba), no dependiente de fases futuras.
+
+**Causa**: `_update_held_body` fijaba `linear_velocity = (to_target / delta)` — divide la distancia al `HoldPoint` por el delta del frame, es decir intenta cerrar TODA la brecha en un solo frame de física. A 60 Hz eso exige velocidades enormes para cualquier separación real (caminar, y sobre todo girar la cámara, que barre el `HoldPoint` en un arco rápido), así que el tope `carry_speed_limit=6.0` se activaba constantemente — el objeto quedaba visiblemente atrás y solo alcanzaba al jugador cuando este se detenía y el punto de sostén dejaba de moverse.
+
+**Cuantificado con un test aislado** (hold_point moviéndose a 10 m/s, luego deteniéndose): con la fórmula vieja, el objeto quedaba 4 unidades atrás y tardaba ~1s en alcanzar tras detenerse.
+
+**Fix**: control proporcional — `linear_velocity = (to_target * carry_catch_up_rate).limit_length(carry_speed_limit)`, con `carry_catch_up_rate=15.0` (1/s) y `carry_speed_limit` subido a `12.0` (deja de ser el mecanismo principal de control, solo un límite de emergencia contra atravesar geometría). La velocidad ahora escala con la distancia en vez de con el inverso del delta — se acelera solo lo necesario para alcanzar, sin depender de cuánto dura el frame. Mismo test: rezago durante movimiento baja a 0.5 unidades, converge en ~0.3s tras detenerse.
 
 Validado: `--check-only`, import headless, 180 frames de runtime.
 

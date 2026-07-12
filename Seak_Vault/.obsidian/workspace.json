@@ -13,12 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/design/Roadmap Prototipo SeaK.md",
+                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
-              "title": "Roadmap Prototipo SeaK"
+              "title": "ADR-003 Sistema de Nado, Estamina e Interacción"
             }
           }
         ]
@@ -94,8 +104,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
-                "collapseAll": false,
+                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -104,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Welcome"
+              "title": "Backlinks for ADR-003 Sistema de Nado, Estamina e Interacción"
             }
           },
           {
@@ -113,12 +123,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
+                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Welcome"
+              "title": "Outgoing links from ADR-003 Sistema de Nado, Estamina e Interacción"
             }
           },
           {
@@ -156,21 +166,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of ADR-003 Sistema de Nado, Estamina e Interacción"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,9 +195,10 @@
   },
   "active": "9f5ad9830ac11fa4",
   "lastOpenFiles": [
-    "wiki/design/Análisis Técnico Prototipo SeaK.md",
-    "wiki/design/Roadmap Prototipo SeaK.md",
+    "wiki/modules/Player Controller.md",
     "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+    "wiki/design/Roadmap Prototipo SeaK.md",
+    "wiki/design/Análisis Técnico Prototipo SeaK.md",
     "wiki/overview.md",
     "wiki/index.md",
     "wiki/log.md.tmp.2640.db199653c5cf",
@@ -216,7 +227,6 @@
     "wiki/modules/_index.md",
     "wiki/concepts/Sincronización CPU-GPU de Olas.md",
     "wiki/modules/Escena World.md",
-    "wiki/modules/Sistema de Agua.md",
-    "wiki/modules/Player Controller.md"
+    "wiki/modules/Sistema de Agua.md"
   ]
 }
