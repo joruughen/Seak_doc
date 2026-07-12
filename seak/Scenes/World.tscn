@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://uknfhrrij5px"]
+
+[ext_resource type="Script" uid="uid://drhat1ub5a6nv" path="res://Scripts/Player.gd" id="1_c6gwx"]
+[ext_resource type="Material" uid="uid://c3mh5p2w5s8g7" path="res://Shaders/Water2.tres" id="2_5nsto"]
+[ext_resource type="Script" uid="uid://duna0y4whiw6d" path="res://Scenes/Cube.gd" id="3_gjpho"]
+[ext_resource type="Script" uid="uid://deg1xu1w3eqkb" path="res://Scenes/Water.gd" id="3_p70al"]
+[ext_resource type="Script" uid="uid://ds5vb0dhiqkwn" path="res://Scripts/PlayerStats.gd" id="4_stats"]
+[ext_resource type="Script" uid="uid://yl60ytkhavh8" path="res://Scripts/DebugHUD.gd" id="5_hud"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c6gwx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2dftf"]
+sky_material = SubResource("ProceduralSkyMaterial_c6gwx")
+
+[sub_resource type="Environment" id="Environment_bcbcq"]
+background_mode = 2
+sky = SubResource("Sky_2dftf")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6gwx"]
+albedo_color = Color(0.6840903, 0.67154026, 0.26705635, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2dftf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bcbcq"]
+points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_barrel"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.9
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_barrel"]
+height = 0.9
+radius = 0.4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p70al"]
+material = ExtResource("2_5nsto")
+size = Vector2(200, 200)
+subdivide_width = 200
+subdivide_depth = 200
+
+[sub_resource type="BoxMesh" id="BoxMesh_45d1s"]
+size = Vector3(6.3657055, 0.49667227, 7.1852355)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7y61"]
+size = Vector3(6.3657055, 0.49667227, 7.1852355)
+
+[node name="World" type="Node3D" unique_id=884560710]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=392965647]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1872065361]
+environment = SubResource("Environment_bcbcq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=875838054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2613802, -0.5)
+use_collision = true
+size = Vector3(11, 0.47723976, 16)
+material = SubResource("StandardMaterial3D_c6gwx")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=848478572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.121964, 0)
+script = ExtResource("1_c6gwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=84260569]
+mesh = SubResource("CapsuleMesh_2dftf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2099845993]
+shape = SubResource("ConvexPolygonShape3D_bcbcq")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=2021852097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76459074, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=218333253]
+
+[node name="HoldPoint" type="Marker3D" parent="Player/Head/Camera3D" unique_id=1385680986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+
+[node name="PlayerStats" type="Node" parent="Player" unique_id=1023192757]
+script = ExtResource("4_stats")
+
+[node name="DebugHUD" type="CanvasLayer" parent="Player" unique_id=76589910]
+script = ExtResource("5_hud")
+
+[node name="Control" type="Control" parent="Player/DebugHUD" unique_id=239602624]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 100.0
+
+[node name="VBox" type="VBoxContainer" parent="Player/DebugHUD/Control" unique_id=769578431]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 80.0
+
+[node name="HPLabel" type="Label" parent="Player/DebugHUD/Control/VBox" unique_id=1066574773]
+layout_mode = 2
+text = "HP"
+
+[node name="HPBar" type="ProgressBar" parent="Player/DebugHUD/Control/VBox" unique_id=216936369]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="StaminaLabel" type="Label" parent="Player/DebugHUD/Control/VBox" unique_id=1550268317]
+layout_mode = 2
+text = "Estamina"
+
+[node name="StaminaBar" type="ProgressBar" parent="Player/DebugHUD/Control/VBox" unique_id=109483610]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="HungerLabel" type="Label" parent="Player/DebugHUD/Control/VBox" unique_id=2038262474]
+layout_mode = 2
+text = "Hambre"
+
+[node name="HungerBar" type="ProgressBar" parent="Player/DebugHUD/Control/VBox" unique_id=238784158]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="Barrel" type="RigidBody3D" parent="." unique_id=61461760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+mass = 8.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Barrel" unique_id=32320447]
+mesh = SubResource("CylinderMesh_barrel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel" unique_id=1305503628]
+shape = SubResource("CylinderShape3D_barrel")
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1759267692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43250334, 8.398633)
+mesh = SubResource("PlaneMesh_p70al")
+script = ExtResource("3_p70al")
+
+[node name="Cube" type="RigidBody3D" parent="." unique_id=923854961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9473692, 11.982479)
+mass = 200.0
+script = ExtResource("3_gjpho")
+float_force = 20.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1898417094]
+mesh = SubResource("BoxMesh_45d1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=1736490649]
+shape = SubResource("BoxShape3D_y7y61")
+debug_color = Color(0, 0.44291356, 0.281553, 0.8509804)
+
+[node name="ProbeContainer" type="Node3D" parent="Cube" unique_id=125877747]
+
+[node name="Probe" type="Marker3D" parent="Cube/ProbeContainer" unique_id=1275558733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.033954, -0.2480782, 3.813411)
+
+[node name="Probe2" type="Marker3D" parent="Cube/ProbeContainer" unique_id=2021480749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.033954, -0.2480782, -0.08481527)
+
+[node name="Probe3" type="Marker3D" parent="Cube/ProbeContainer" unique_id=2131089360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.033954, -0.2480782, -3.740026)
+
+[node name="Probe4" type="Marker3D" parent="Cube/ProbeContainer" unique_id=1030465528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1383864, -0.2480782, -3.740026)
+
+[node name="Probe5" type="Marker3D" parent="Cube/ProbeContainer" unique_id=1498710128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.168408, -0.2480782, -3.545785)
+
+[node name="Probe6" type="Marker3D" parent="Cube/ProbeContainer" unique_id=630364426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.168408, -0.2480782, -0.04915551)
+
+[node name="Probe7" type="Marker3D" parent="Cube/ProbeContainer" unique_id=324455004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.168408, -0.2480782, 3.519013)
+
+[node name="Probe8" type="Marker3D" parent="Cube/ProbeContainer" unique_id=548419313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5681327, -0.2480782, 3.519013)
+
+[node name="Probe9" type="Marker3D" parent="Cube/ProbeContainer" unique_id=539940587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1383864, -0.2480782, 0.1872172)

@@ -34,6 +34,11 @@
     "ast_hash": "7a020f00c43b652650d498fd71d079f4",
     "semantic_hash": "7a020f00c43b652650d498fd71d079f4"
   },
+  "Seak_Vault/Welcome.md": {
+    "mtime": 1783790898.693693,
+    "ast_hash": "5dce4937496ad2d20178a7578f1a1368",
+    "semantic_hash": "5dce4937496ad2d20178a7578f1a1368"
+  },
   "Seak_Vault/wiki/concepts/CharacterController.md": {
     "mtime": 1783793753.1934545,
     "ast_hash": "4b78dac9961807e0f6c09d807bab9e66",
@@ -123,25 +128,5 @@
     "mtime": 1783730249.1542594,
     "ast_hash": "a16f2eed1b4496c4abf03d329708ba09",
     "semantic_hash": "a16f2eed1b4496c4abf03d329708ba09"
-  },
-  "Seak_Vault/wiki/concepts/_index.md": {
-    "mtime": 1783793766.135406,
-    "ast_hash": "59d714f56ddb4ddab2564e7c759fe83c",
-    "semantic_hash": "59d714f56ddb4ddab2564e7c759fe83c"
-  },
-  "Seak_Vault/wiki/decisions/_index.md": {
-    "mtime": 1783833806.8856447,
-    "ast_hash": "bf6b595a3cc5c6c6c5c9586281f99088",
-    "semantic_hash": "bf6b595a3cc5c6c6c5c9586281f99088"
-  },
-  "Seak_Vault/wiki/design/_index.md": {
-    "mtime": 1783831388.8545163,
-    "ast_hash": "fc98eec982dbda8a4e24f8f2bf877419",
-    "semantic_hash": "fc98eec982dbda8a4e24f8f2bf877419"
-  },
-  "Seak_Vault/wiki/modules/_index.md": {
-    "mtime": 1783793763.2658553,
-    "ast_hash": "cbfaf81ff8a553e3836ea7219aa62669",
-    "semantic_hash": "cbfaf81ff8a553e3836ea7219aa62669"
   }
 }

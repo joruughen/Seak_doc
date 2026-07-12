@@ -37,6 +37,6 @@ Seak_Vault/
 
 ## Operations
 
-- Ingest: soltar fuente en .raw/, decir "ingest [archivo]"
-- Query: preguntar lo que sea — Claude lee hot.md, luego index.md, luego páginas
-- Lint: decir "lint the wiki" para un health check
+- Ingest: Soltar fuente en .raw/, actualizar el grafo localmente desde PowerShell con `python -m graphify .`, y notificar a Claude.
+- Query: Preguntar lo que sea — Claude DEBE leer primero los datos estructurados en `graphify-out/graph.json` para obtener el plano del proyecto. Queda prohibido ejecutar comandos automáticos de re-extracción (`/graphify` o similares) en la terminal.
+- Lint: Decir "lint the wiki" para un health check de los wikilinks y el frontmatter.
