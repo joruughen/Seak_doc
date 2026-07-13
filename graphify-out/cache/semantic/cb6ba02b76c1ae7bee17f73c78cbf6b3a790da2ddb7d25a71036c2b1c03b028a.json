@@ -1,0 +1,1 @@
+{"nodes": [], "edges": [], "hyperedges": [{"id": "player_stats_hud_loop", "label": "Player Stats & HUD Loop", "nodes": ["scripts_player", "scripts_playerstats", "scripts_debughud", "adr_003"], "relation": "participate_in", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "Seak_Vault/wiki/modules/Player Controller.md"}]}

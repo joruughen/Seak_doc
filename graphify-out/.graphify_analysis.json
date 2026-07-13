@@ -1,17 +1,20 @@
 {
   "communities": {
     "0": [
-      "concept_crouch_fix",
+      "scenes_world",
+      "scripts_boatmanager",
       "scripts_debughud",
       "scripts_player",
       "scripts_playerstats",
-      "wiki_modules_player_controller"
+      "seak_vault_wiki_decisions_adr_006",
+      "seak_vault_wiki_modules_player_controller"
     ],
     "1": [
-      "adr_004",
-      "scenes_loosepiece",
-      "scripts_piecedata",
-      "wiki_log"
+      "adr_005",
+      "adr_006",
+      "adr_007",
+      "seak_vault_wiki_hot_cache",
+      "seak_vault_wiki_log_ops"
     ],
     "2": [
       "seak_vault_wiki_concepts_shader_de_agua",
@@ -20,75 +23,87 @@
       "seak_vault_wiki_modules_sistema_de_agua"
     ],
     "3": [
-      "concept_collision_tunneling_fix",
-      "resources_pieces",
-      "scenes_world"
+      "scenes_loosepiece",
+      "scripts_loosepiece",
+      "scripts_piecedata"
     ],
     "4": [
-      "concept_fase2_grupo1",
-      "wiki_hot",
-      "wiki_index"
-    ],
-    "5": [
       "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
       "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
       "seak_vault_wiki_modules_cube_flotante"
     ],
-    "6": [
+    "5": [
       "scenes_cube",
       "scenes_water"
     ],
+    "6": [
+      "adr_003"
+    ],
     "7": [
-      "scripts_boatmanager",
-      "wiki_design_roadmap_prototipo_seak"
+      "adr_004"
     ],
     "8": [
-      "graphify_tool"
+      "analisis_tecnico_prototipo_seak"
     ],
     "9": [
-      "readme"
+      "graphify_tool"
     ],
     "10": [
-      "seak_icon"
+      "readme"
     ],
     "11": [
-      "seak_project"
+      "resources_pieces"
     ],
     "12": [
-      "seak_vault_claude"
+      "seak_icon"
     ],
     "13": [
-      "seak_vault_obsidian_app"
+      "seak_project"
     ],
     "14": [
-      "seak_vault_wiki_concepts_charactercontroller"
+      "seak_vault_claude"
     ],
     "15": [
-      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
+      "seak_vault_obsidian_app"
     ],
     "16": [
-      "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
+      "seak_vault_wiki_concepts_charactercontroller"
     ],
     "17": [
-      "seak_vault_wiki_modules_escena_world"
+      "seak_vault_wiki_design_roadmap_prototipo_seak"
     ],
     "18": [
-      "seak_vault_wiki_overview"
+      "seak_vault_wiki_index"
     ],
     "19": [
-      "shaders_water2_gdshader"
+      "seak_vault_wiki_modules_escena_world"
     ],
     "20": [
+      "seak_vault_wiki_overview"
+    ],
+    "21": [
+      "shaders_water2_gdshader"
+    ],
+    "22": [
+      "wiki_hot"
+    ],
+    "23": [
+      "wiki_index"
+    ],
+    "24": [
+      "wiki_log"
+    ],
+    "25": [
       "wiki_overview"
     ]
   },
   "cohesion": {
-    "0": 0.6,
-    "1": 0.6666666666666666,
+    "0": 0.2857142857142857,
+    "1": 0.4,
     "2": 0.6666666666666666,
     "3": 0.6666666666666666,
     "4": 0.6666666666666666,
-    "5": 0.6666666666666666,
+    "5": 1.0,
     "6": 1.0,
     "7": 1.0,
     "8": 1.0,
@@ -103,17 +118,27 @@
     "17": 1.0,
     "18": 1.0,
     "19": 1.0,
-    "20": 1.0
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0
   },
   "gods": [
     {
-      "id": "wiki_modules_player_controller",
+      "id": "scripts_player",
       "label": "Player Controller",
-      "degree": 3
+      "degree": 6
     },
     {
-      "id": "adr_004",
-      "label": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
+      "id": "adr_007",
+      "label": "ADR-007 Construction Mode",
+      "degree": 5
+    },
+    {
+      "id": "scripts_piecedata",
+      "label": "PieceData Resource",
       "degree": 3
     },
     {
@@ -142,43 +167,60 @@
       "degree": 2
     },
     {
-      "id": "wiki_hot",
-      "label": "Hot Cache",
+      "id": "scripts_boatmanager",
+      "label": "BoatManager",
       "degree": 2
     },
     {
-      "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
-      "label": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
-      "degree": 1
-    },
-    {
-      "id": "seak_vault_wiki_modules_cube_flotante",
-      "label": "Cube Flotante",
-      "degree": 1
+      "id": "scripts_playerstats",
+      "label": "PlayerStats",
+      "degree": 2
     }
   ],
   "surprises": [
     {
-      "source": "Wiki Log",
-      "target": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
+      "source": "Player Controller",
+      "target": "Player Controller",
       "source_files": [
-        "wiki/log.md",
-        "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
+        "Seak_Vault/wiki/modules/Player Controller.md",
+        "Scripts/Player.gd"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `Player Controller` unexpectedly reaches hub `Player Controller`"
+    },
+    {
+      "source": "ADR-007 Construction Mode",
+      "target": "Player Controller",
+      "source_files": [
+        "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
+        "Scripts/Player.gd"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "ADR-006 \u2014 Extender Soldadura: Pieza a Bote y Fusi\u00f3n de Botes",
+      "target": "BoatManager",
+      "source_files": [
+        "Seak_Vault/wiki/decisions/ADR-006 Extender Soldadura \u2014 Pieza a Bote y Fusi\u00f3n de Botes.md",
+        "Scripts/BoatManager.gd"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
       "why": "connects across different repos/directories"
     },
     {
-      "source": "Hot Cache",
-      "target": "Fase 2 Grupo 1: Datos Base",
+      "source": "Player Controller",
+      "target": "BoatManager",
       "source_files": [
-        "wiki/hot.md",
-        "Seak_Vault/wiki/hot.md"
+        "Scripts/Player.gd",
+        "Scripts/BoatManager.gd"
       ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories"
+      "confidence": "INFERRED",
+      "relation": "shares_data_with",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `BoatManager` unexpectedly reaches hub `Player Controller`"
     },
     {
       "source": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
@@ -190,32 +232,10 @@
       "confidence": "INFERRED",
       "relation": "conceptually_related_to",
       "why": "inferred connection - not explicitly stated in source"
-    },
-    {
-      "source": "Cube Flotante",
-      "target": "F\u00edsicas de Flotabilidad",
-      "source_files": [
-        "Seak_Vault/wiki/modules/Cube Flotante.md",
-        "Seak_Vault/wiki/concepts/F\u00edsicas de Flotabilidad.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "references",
-      "why": "inferred connection - not explicitly stated in source"
-    },
-    {
-      "source": "Sistema de Agua",
-      "target": "Shader de Agua",
-      "source_files": [
-        "Seak_Vault/wiki/modules/Sistema de Agua.md",
-        "Seak_Vault/wiki/concepts/Shader de Agua.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "references",
-      "why": "inferred connection - not explicitly stated in source"
     }
   ],
   "tokens": {
-    "input": 9476,
-    "output": 1985
+    "input": 19093,
+    "output": 1638
   }
 }

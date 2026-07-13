@@ -52,18 +52,24 @@ Detalle de la implementación: [[ADR-003 Sistema de Nado, Estamina e Interacció
 
 - [x] Resource `PieceData`: `mass`, `buoyancy_factor`, `hp`, `flags` (walkable, grabbable_edge, storage, bumper, armor)
 - [x] Escena `LoosePiece` (RigidBody3D + shape primitiva + PieceData) — instanciar los 7 objetos del prototipo
-- [ ] Modo construcción FPS: `RayCast3D` desde cámara + ghost preview verde/rojo
-- [ ] Snap asistido: superficie + rejilla 0.25 m + rotación 90°
-- [ ] `BoatManager` (RigidBody3D): génesis al soldar 2 piezas sueltas — migrar meshes+shapes, liberar cuerpos, transferir velocidad ponderada
-- [ ] Soldar pieza→bote existente (migración simple)
-- [ ] Soldar bote→bote (fusión de grafos, migrar al mayor)
-- [ ] `ConnectionGraph` (Dictionary piece_id→vecinos) mantenido en cada weld
-- [ ] Recalcular `mass` y `center_of_mass` (COM custom, **nunca inercia custom** — godot#78750) en cada cambio
-- [ ] Mapa `shape_index → piece_id` (lo consumirá la Fase 4)
+- [x] Modo construcción FPS: `RayCast3D` desde cámara + ghost preview verde/rojo
+- [x] Snap asistido: superficie + rejilla 0.25 m + rotación 90°
+- [x] `BoatManager` (RigidBody3D): génesis al soldar 2 piezas sueltas — migrar meshes+shapes, liberar cuerpos, transferir velocidad ponderada
+- [x] Soldar pieza→bote existente (migración simple)
+- [x] Soldar bote→bote (fusión de grafos, migrar al mayor)
+- [x] `ConnectionGraph` (Dictionary piece_id→vecinos) mantenido en cada weld
+- [x] Recalcular `mass` y `center_of_mass` (COM custom, **nunca inercia custom** — godot#78750) en cada cambio
+- [ ] Mapa `shape_index → piece_id` (lo consumirá la Fase 4) — germen ya existe en `BoatManager._shape_to_piece_id`/`piece_id_for_shape_index` (Grupo 3, usado para saber a qué pieza soldar), falta exponerlo/adaptarlo para el consumidor real de Fase 4
 
 **DoD:** en la playa, pego barril+puerta+palé en cualquier orden; el ensamble es UN RigidBody que empujo con la Fase 1; el inspector muestra masa y COM correctos; no hay tirones al soldar.
 
 **Grupo 1 completado (2026-07-12)**: `PieceData` + `LoosePiece` + los 7 objetos de prueba instanciados en la playa. Detalle: [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]]. De paso se arregló un bug transversal (no de esta fase): el pitch de cámara topaba en -40° y no había agachado, por lo que las piezas bajas/planas (Palé, Chapa) eran casi imposibles de agarrar — ver mismo ADR.
+
+**Grupo 2 completado (2026-07-13)**: `BoatManager` (génesis al soldar 2 `LoosePiece`, migración plana de mesh+shape, `ConnectionGraph`, recálculo de masa/COM custom sin tocar inercia). Disparador de prueba provisorio: sostener una pieza y apuntar a otra con la tecla **G** (hasta que el Grupo 4 lo reemplace por el modo construcción con ghost preview). Detalle: [[ADR-005 BoatManager — Génesis de Botes]].
+
+**Grupo 3 completado (2026-07-13)**: `weld_piece_to_boat` (pieza→bote existente) y `weld_boats` (bote→bote, migra al de más piezas, con puente geométrico entre grafos). Mismo disparador de prueba (tecla G) extendido a las 4 combinaciones pieza/bote. Detalle: [[ADR-006 Extender Soldadura — Pieza a Bote y Fusión de Botes]].
+
+**Grupo 4 completado (2026-07-13)**: modo construcción real — ghost preview verde/rojo (RayCast3D excluyendo la pieza sostenida) + snap de posición (rejilla 0.25m) y rotación (90°). La tecla **G** de prueba se retiró: confirmar ahora es la misma tecla de interactuar (**E**) — si hay objetivo válido suelda ahí (moviendo la pieza a la pose del ghost antes de soldar, para que el resultado coincida con la preview), si no, suelta como siempre. Detalle: [[ADR-007 Modo Construcción — Ghost Preview y Snap]].
 
 ---
 

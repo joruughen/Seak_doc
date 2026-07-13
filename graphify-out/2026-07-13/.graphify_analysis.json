@@ -1,0 +1,232 @@
+{
+  "communities": {
+    "0": [
+      "adr_004",
+      "adr_005",
+      "analisis_tecnico_prototipo_seak",
+      "scenes_loosepiece",
+      "scripts_boatmanager",
+      "scripts_loosepiece",
+      "scripts_piecedata",
+      "seak_vault_wiki_decisions_adr_006"
+    ],
+    "1": [
+      "scenes_world",
+      "scripts_debughud",
+      "scripts_player",
+      "scripts_playerstats",
+      "seak_vault_wiki_modules_player_controller"
+    ],
+    "2": [
+      "seak_vault_wiki_decisions_adr_007",
+      "seak_vault_wiki_design_roadmap_prototipo_seak",
+      "seak_vault_wiki_hot",
+      "seak_vault_wiki_index",
+      "seak_vault_wiki_log"
+    ],
+    "3": [
+      "seak_vault_wiki_concepts_shader_de_agua",
+      "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas",
+      "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "seak_vault_wiki_modules_sistema_de_agua"
+    ],
+    "4": [
+      "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
+      "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
+      "seak_vault_wiki_modules_cube_flotante"
+    ],
+    "5": [
+      "scenes_cube",
+      "scenes_water"
+    ],
+    "6": [
+      "concept_crouch_fix"
+    ],
+    "7": [
+      "graphify_tool"
+    ],
+    "8": [
+      "readme"
+    ],
+    "9": [
+      "resources_pieces"
+    ],
+    "10": [
+      "seak_icon"
+    ],
+    "11": [
+      "seak_project"
+    ],
+    "12": [
+      "seak_vault_claude"
+    ],
+    "13": [
+      "seak_vault_obsidian_app"
+    ],
+    "14": [
+      "seak_vault_wiki_concepts_charactercontroller"
+    ],
+    "15": [
+      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
+    ],
+    "16": [
+      "seak_vault_wiki_modules_escena_world"
+    ],
+    "17": [
+      "seak_vault_wiki_overview"
+    ],
+    "18": [
+      "shaders_water2_gdshader"
+    ],
+    "19": [
+      "wiki_hot"
+    ],
+    "20": [
+      "wiki_index"
+    ],
+    "21": [
+      "wiki_log"
+    ],
+    "22": [
+      "wiki_overview"
+    ]
+  },
+  "cohesion": {
+    "0": 0.32142857142857145,
+    "1": 0.4,
+    "2": 0.4,
+    "3": 0.6666666666666666,
+    "4": 0.6666666666666666,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0
+  },
+  "gods": [
+    {
+      "id": "adr_005",
+      "label": "ADR-005 BoatManager \u2014 G\u00e9nesis de Botes",
+      "degree": 4
+    },
+    {
+      "id": "adr_004",
+      "label": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
+      "degree": 3
+    },
+    {
+      "id": "seak_vault_wiki_hot",
+      "label": "Hot Cache",
+      "degree": 3
+    },
+    {
+      "id": "seak_vault_wiki_decisions_adr_007",
+      "label": "ADR-007 \u2014 Modo Construcci\u00f3n: Ghost Preview y Snap",
+      "degree": 3
+    },
+    {
+      "id": "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
+      "label": "F\u00edsicas de Flotabilidad",
+      "degree": 2
+    },
+    {
+      "id": "seak_vault_wiki_concepts_shader_de_agua",
+      "label": "Shader de Agua",
+      "degree": 2
+    },
+    {
+      "id": "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas",
+      "label": "Sincronizaci\u00f3n CPU-GPU de Olas",
+      "degree": 2
+    },
+    {
+      "id": "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua",
+      "label": "ADR-001 \u2014 Refactor del Shader de Agua",
+      "degree": 2
+    },
+    {
+      "id": "seak_vault_wiki_modules_sistema_de_agua",
+      "label": "Sistema de Agua",
+      "degree": 2
+    },
+    {
+      "id": "seak_vault_wiki_design_roadmap_prototipo_seak",
+      "label": "Roadmap \u2014 Prototipo SeaK",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
+      "target": "F\u00edsicas de Flotabilidad",
+      "source_files": [
+        "Seak_Vault/wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
+        "Seak_Vault/wiki/concepts/F\u00edsicas de Flotabilidad.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "Cube Flotante",
+      "target": "F\u00edsicas de Flotabilidad",
+      "source_files": [
+        "Seak_Vault/wiki/modules/Cube Flotante.md",
+        "Seak_Vault/wiki/concepts/F\u00edsicas de Flotabilidad.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "Sistema de Agua",
+      "target": "Shader de Agua",
+      "source_files": [
+        "Seak_Vault/wiki/modules/Sistema de Agua.md",
+        "Seak_Vault/wiki/concepts/Shader de Agua.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "ADR-001 \u2014 Refactor del Shader de Agua",
+      "target": "Sincronizaci\u00f3n CPU-GPU de Olas",
+      "source_files": [
+        "Seak_Vault/wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
+        "Seak_Vault/wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source"
+    },
+    {
+      "source": "Sistema de Agua",
+      "target": "Sincronizaci\u00f3n CPU-GPU de Olas",
+      "source_files": [
+        "Seak_Vault/wiki/modules/Sistema de Agua.md",
+        "Seak_Vault/wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source"
+    }
+  ],
+  "tokens": {
+    "input": 21819,
+    "output": 2029
+  }
+}

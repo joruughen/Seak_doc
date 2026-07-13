@@ -20,9 +20,9 @@
     "semantic_hash": "0f3391b53c2a6cdee2cd8911c95b7338"
   },
   "Seak_Vault/.obsidian/workspace.json": {
-    "mtime": 1783930689.1826878,
-    "ast_hash": "9256022c0339d3b58c6074c15c9616f8",
-    "semantic_hash": "9256022c0339d3b58c6074c15c9616f8"
+    "mtime": 1783928106.1740973,
+    "ast_hash": "606c9f330ae1f721442afe87f4e91128",
+    "semantic_hash": "606c9f330ae1f721442afe87f4e91128"
   },
   "README.md": {
     "mtime": 1783790852.686176,
@@ -75,9 +75,9 @@
     "semantic_hash": "aaf49b53dfe3428ae8a449041895edbc"
   },
   "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md": {
-    "mtime": 1783924714.6714096,
-    "ast_hash": "4ab0563170efff025c4d5bbd6189da03",
-    "semantic_hash": "4ab0563170efff025c4d5bbd6189da03"
+    "mtime": 1783915447.664034,
+    "ast_hash": "b49e7735bd5ffecf59444e7a4e9ed273",
+    "semantic_hash": "b49e7735bd5ffecf59444e7a4e9ed273"
   },
   "Seak_Vault/wiki/hot.md": {
     "mtime": 1783881683.5812411,
@@ -85,9 +85,9 @@
     "semantic_hash": "68caace96fd0d8783f5f6d003755a246"
   },
   "Seak_Vault/wiki/index.md": {
-    "mtime": 1783924793.66111,
-    "ast_hash": "348107bd0ba35558c4e2d329f2264510",
-    "semantic_hash": "348107bd0ba35558c4e2d329f2264510"
+    "mtime": 1783915508.9389653,
+    "ast_hash": "436fd81dd29253b7fc76db472a7e3ea3",
+    "semantic_hash": "436fd81dd29253b7fc76db472a7e3ea3"
   },
   "Seak_Vault/wiki/log.md": {
     "mtime": 1783881623.8377736,
@@ -153,10 +153,5 @@
     "mtime": 1783920084.742982,
     "ast_hash": "2dcddd6244ff85d25c8219b849f5c322",
     "semantic_hash": "2dcddd6244ff85d25c8219b849f5c322"
-  },
-  "Seak_Vault/wiki/decisions/ADR-006 Extender Soldadura \u2014 Pieza a Bote y Fusi\u00f3n de Botes.md": {
-    "mtime": 1783921807.304858,
-    "ast_hash": "579cdfbd5972531d7e1d25ca35c5c444",
-    "semantic_hash": "579cdfbd5972531d7e1d25ca35c5c444"
   }
 }

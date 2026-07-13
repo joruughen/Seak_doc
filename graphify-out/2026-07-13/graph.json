@@ -7,30 +7,42 @@
         "id": "construction_system_flow",
         "label": "Construction System Flow",
         "nodes": [
+          "seak_vault_wiki_decisions_adr_007",
           "scripts_player",
           "scripts_boatmanager",
-          "adr_007",
-          "adr_006",
-          "adr_005"
+          "seak_vault_wiki_decisions_adr_006"
         ],
         "relation": "participate_in",
         "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
+        "confidence_score": 0.9,
         "source_file": "Seak_Vault/wiki/hot.md"
       },
       {
-        "id": "player_stats_hud_loop",
-        "label": "Player Stats & HUD Loop",
+        "id": "player_stats_system",
+        "label": "Player Stats & HUD System",
         "nodes": [
-          "scripts_player",
           "scripts_playerstats",
           "scripts_debughud",
-          "adr_003"
+          "scripts_player"
         ],
         "relation": "participate_in",
         "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "Seak_Vault/wiki/log.md"
+      },
+      {
+        "id": "player_interaction_fixes",
+        "label": "Player Interaction & Physics Fixes",
+        "nodes": [
+          "scripts_player",
+          "concept_crouch_fix",
+          "concept_collision_tunneling_fix",
+          "adr_004"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
         "confidence_score": 1.0,
-        "source_file": "Seak_Vault/wiki/modules/Player Controller.md"
+        "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
       },
       {
         "id": "water_system_core",
@@ -107,7 +119,7 @@
       "source_file": "Seak_Vault/.obsidian/app.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 15,
+      "community": 13,
       "norm_label": "app.json",
       "id": "seak_vault_obsidian_app"
     },
@@ -131,7 +143,7 @@
       "label": "Water2.gdshader",
       "file_type": "code",
       "source_file": "Shaders/Water2.gdshader",
-      "community": 21,
+      "community": 18,
       "norm_label": "water2.gdshader",
       "id": "shaders_water2_gdshader"
     },
@@ -139,7 +151,7 @@
       "label": "Seak_doc",
       "file_type": "document",
       "source_file": "README.md",
-      "community": 10,
+      "community": 8,
       "norm_label": "seak_doc",
       "id": "readme"
     },
@@ -147,7 +159,7 @@
       "label": "CharacterController",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/CharacterController.md",
-      "community": 16,
+      "community": 14,
       "norm_label": "charactercontroller",
       "id": "seak_vault_wiki_concepts_charactercontroller"
     },
@@ -163,7 +175,7 @@
       "label": "Shader de Agua",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/Shader de Agua.md",
-      "community": 2,
+      "community": 3,
       "norm_label": "shader de agua",
       "id": "seak_vault_wiki_concepts_shader_de_agua"
     },
@@ -171,7 +183,7 @@
       "label": "Sincronizaci\u00f3n CPU-GPU de Olas",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md",
-      "community": 2,
+      "community": 3,
       "norm_label": "sincronizacion cpu-gpu de olas",
       "id": "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas"
     },
@@ -179,7 +191,7 @@
       "label": "ADR-001 \u2014 Refactor del Shader de Agua",
       "file_type": "rationale",
       "source_file": "Seak_Vault/wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
-      "community": 2,
+      "community": 3,
       "norm_label": "adr-001 \u2014 refactor del shader de agua",
       "id": "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua"
     },
@@ -190,6 +202,14 @@
       "community": 4,
       "norm_label": "adr-002 \u2014 estabilizacion player-cube",
       "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube"
+    },
+    {
+      "label": "ADR-003 \u2014 Sistema de Nado, Estamina e Interacci\u00f3n",
+      "file_type": "rationale",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacci\u00f3n.md",
+      "community": 15,
+      "norm_label": "adr-003 \u2014 sistema de nado, estamina e interaccion",
+      "id": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
     },
     {
       "label": "Cube Flotante",
@@ -203,7 +223,7 @@
       "label": "Escena World",
       "file_type": "code",
       "source_file": "Seak_Vault/wiki/modules/Escena World.md",
-      "community": 19,
+      "community": 16,
       "norm_label": "escena world",
       "id": "seak_vault_wiki_modules_escena_world"
     },
@@ -211,7 +231,7 @@
       "label": "Sistema de Agua",
       "file_type": "code",
       "source_file": "Seak_Vault/wiki/modules/Sistema de Agua.md",
-      "community": 2,
+      "community": 3,
       "norm_label": "sistema de agua",
       "id": "seak_vault_wiki_modules_sistema_de_agua"
     },
@@ -219,7 +239,7 @@
       "label": "SeaK \u2014 Resumen de Arquitectura",
       "file_type": "document",
       "source_file": "Seak_Vault/wiki/overview.md",
-      "community": 20,
+      "community": 17,
       "norm_label": "seak \u2014 resumen de arquitectura",
       "id": "seak_vault_wiki_overview"
     },
@@ -227,7 +247,7 @@
       "label": "Seak Icon",
       "file_type": "image",
       "source_file": "seak/icon.svg",
-      "community": 12,
+      "community": 10,
       "norm_label": "seak icon",
       "id": "seak_icon"
     },
@@ -240,7 +260,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 20,
       "norm_label": "wiki index",
       "id": "wiki_index"
     },
@@ -253,7 +273,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 24,
+      "community": 21,
       "norm_label": "wiki log",
       "id": "wiki_log"
     },
@@ -266,7 +286,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 19,
       "norm_label": "hot cache",
       "id": "wiki_hot"
     },
@@ -279,7 +299,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 25,
+      "community": 22,
       "norm_label": "architecture overview",
       "id": "wiki_overview"
     },
@@ -292,7 +312,7 @@
       "captured_at": null,
       "author": "Jorge Melgarejo",
       "contributor": null,
-      "community": 13,
+      "community": 11,
       "norm_label": "seak godot project",
       "id": "seak_project"
     },
@@ -305,7 +325,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 7,
       "norm_label": "graphify tool",
       "id": "graphify_tool"
     },
@@ -313,7 +333,7 @@
       "label": "CLAUDE.md",
       "file_type": "document",
       "source_file": "Seak_Vault/CLAUDE.md",
-      "community": 14,
+      "community": 12,
       "norm_label": "claude.md",
       "id": "seak_vault_claude"
     },
@@ -321,7 +341,7 @@
       "label": "LoosePiece.gd",
       "file_type": "code",
       "source_file": "Scenes/LoosePiece.gd",
-      "community": 3,
+      "community": 0,
       "norm_label": "loosepiece.gd",
       "id": "scenes_loosepiece"
     },
@@ -329,9 +349,25 @@
       "label": "Piece Resources (*.tres)",
       "file_type": "rationale",
       "source_file": "Resources/Pieces/",
-      "community": 11,
+      "community": 9,
       "norm_label": "piece resources (*.tres)",
       "id": "resources_pieces"
+    },
+    {
+      "label": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "community": 0,
+      "norm_label": "adr-004 piezas sueltas y fix de agarre bajo",
+      "id": "adr_004"
+    },
+    {
+      "label": "Fix de Agachado y Pitch",
+      "file_type": "concept",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "community": 6,
+      "norm_label": "fix de agachado y pitch",
+      "id": "concept_crouch_fix"
     },
     {
       "label": "LoosePiece",
@@ -342,7 +378,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 0,
       "norm_label": "loosepiece",
       "id": "scripts_loosepiece"
     },
@@ -355,35 +391,61 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 0,
       "norm_label": "analisis tecnico prototipo seak",
       "id": "analisis_tecnico_prototipo_seak"
     },
     {
-      "label": "Player Controller",
+      "label": "ADR-005 BoatManager \u2014 G\u00e9nesis de Botes",
       "file_type": "document",
-      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "adr_005",
       "community": 0,
-      "norm_label": "player controller",
-      "id": "seak_vault_wiki_modules_player_controller"
+      "norm_label": "adr-005 boatmanager \u2014 genesis de botes"
     },
     {
-      "label": "World.tscn",
-      "file_type": "code",
-      "source_file": "Scenes/World.tscn",
+      "label": "Hot Cache",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/hot.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
-      "norm_label": "world.tscn",
-      "id": "scenes_world"
+      "id": "seak_vault_wiki_hot",
+      "community": 2,
+      "norm_label": "hot cache"
+    },
+    {
+      "label": "\u00cdndice Maestro",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seak_vault_wiki_index",
+      "community": 2,
+      "norm_label": "indice maestro"
+    },
+    {
+      "label": "Log de Operaciones",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/log.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seak_vault_wiki_log",
+      "community": 2,
+      "norm_label": "log de operaciones"
     },
     {
       "label": "ADR-006 \u2014 Extender Soldadura: Pieza a Bote y Fusi\u00f3n de Botes",
@@ -399,6 +461,19 @@
       "norm_label": "adr-006 \u2014 extender soldadura: pieza a bote y fusion de botes"
     },
     {
+      "label": "ADR-007 \u2014 Modo Construcci\u00f3n: Ghost Preview y Snap",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "seak_vault_wiki_decisions_adr_007",
+      "community": 2,
+      "norm_label": "adr-007 \u2014 modo construccion: ghost preview y snap"
+    },
+    {
       "label": "Roadmap \u2014 Prototipo SeaK",
       "file_type": "document",
       "source_file": "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md",
@@ -408,24 +483,24 @@
       "author": null,
       "contributor": null,
       "id": "seak_vault_wiki_design_roadmap_prototipo_seak",
-      "community": 17,
+      "community": 2,
       "norm_label": "roadmap \u2014 prototipo seak"
     },
     {
-      "label": "\u00cdndice Maestro",
+      "label": "Player Controller",
       "file_type": "document",
-      "source_file": "Seak_Vault/wiki/index.md",
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "seak_vault_wiki_index",
-      "community": 18,
-      "norm_label": "indice maestro"
+      "id": "seak_vault_wiki_modules_player_controller",
+      "community": 1,
+      "norm_label": "player controller"
     },
     {
-      "label": "Player Controller",
+      "label": "Player.gd",
       "file_type": "code",
       "source_file": "Scripts/Player.gd",
       "source_location": null,
@@ -434,24 +509,11 @@
       "author": null,
       "contributor": null,
       "id": "scripts_player",
-      "community": 0,
-      "norm_label": "player controller"
+      "community": 1,
+      "norm_label": "player.gd"
     },
     {
-      "label": "PieceData Resource",
-      "file_type": "code",
-      "source_file": "Scripts/PieceData.gd",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "scripts_piecedata",
-      "community": 3,
-      "norm_label": "piecedata resource"
-    },
-    {
-      "label": "BoatManager",
+      "label": "BoatManager.gd",
       "file_type": "code",
       "source_file": "Scripts/BoatManager.gd",
       "source_location": null,
@@ -461,10 +523,23 @@
       "contributor": null,
       "id": "scripts_boatmanager",
       "community": 0,
-      "norm_label": "boatmanager"
+      "norm_label": "boatmanager.gd"
     },
     {
-      "label": "PlayerStats",
+      "label": "PieceData.gd",
+      "file_type": "code",
+      "source_file": "Scripts/PieceData.gd",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "scripts_piecedata",
+      "community": 0,
+      "norm_label": "piecedata.gd"
+    },
+    {
+      "label": "PlayerStats.gd",
       "file_type": "code",
       "source_file": "Scripts/PlayerStats.gd",
       "source_location": null,
@@ -473,11 +548,11 @@
       "author": null,
       "contributor": null,
       "id": "scripts_playerstats",
-      "community": 0,
-      "norm_label": "playerstats"
+      "community": 1,
+      "norm_label": "playerstats.gd"
     },
     {
-      "label": "DebugHUD",
+      "label": "DebugHUD.gd",
       "file_type": "code",
       "source_file": "Scripts/DebugHUD.gd",
       "source_location": null,
@@ -486,99 +561,21 @@
       "author": null,
       "contributor": null,
       "id": "scripts_debughud",
-      "community": 0,
-      "norm_label": "debughud"
-    },
-    {
-      "label": "ADR-007 Construction Mode",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "adr_007",
       "community": 1,
-      "norm_label": "adr-007 construction mode"
+      "norm_label": "debughud.gd"
     },
     {
-      "label": "ADR-006 Extended Welding",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/decisions/ADR-006 Extender Soldadura \u2014 Pieza a Bote y Fusi\u00f3n de Botes.md",
+      "label": "World.tscn",
+      "file_type": "code",
+      "source_file": "Scenes/World.tscn",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "adr_006",
+      "id": "scenes_world",
       "community": 1,
-      "norm_label": "adr-006 extended welding"
-    },
-    {
-      "label": "ADR-005 BoatManager Genesis",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "adr_005",
-      "community": 1,
-      "norm_label": "adr-005 boatmanager genesis"
-    },
-    {
-      "label": "ADR-004 Loose Pieces & Grip Fix",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "adr_004",
-      "community": 7,
-      "norm_label": "adr-004 loose pieces & grip fix"
-    },
-    {
-      "label": "ADR-003 Swim & Interaction",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacci\u00f3n.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "adr_003",
-      "community": 6,
-      "norm_label": "adr-003 swim & interaction"
-    },
-    {
-      "label": "Hot Cache",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/hot.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "seak_vault_wiki_hot_cache",
-      "community": 1,
-      "norm_label": "hot cache"
-    },
-    {
-      "label": "Log de Operaciones",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/log.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "seak_vault_wiki_log_ops",
-      "community": 1,
-      "norm_label": "log de operaciones"
+      "norm_label": "world.tscn"
     }
   ],
   "links": [
@@ -639,6 +636,14 @@
       "target": "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas"
     },
     {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "source": "adr_004",
+      "target": "scenes_loosepiece"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -649,6 +654,24 @@
       "target": "scripts_piecedata"
     },
     {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "source": "adr_004",
+      "target": "scripts_piecedata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_005",
+      "target": "adr_004"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -657,6 +680,96 @@
       "weight": 1.0,
       "source": "scripts_loosepiece",
       "target": "scripts_piecedata"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_005",
+      "target": "analisis_tecnico_prototipo_seak"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_005",
+      "target": "seak_vault_wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-005 BoatManager \u2014 G\u00e9nesis de Botes.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "adr_005",
+      "target": "scripts_boatmanager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_hot",
+      "target": "seak_vault_wiki_decisions_adr_007"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/hot.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_hot",
+      "target": "seak_vault_wiki_design_roadmap_prototipo_seak"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/index.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_index",
+      "target": "seak_vault_wiki_hot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/log.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_log",
+      "target": "seak_vault_wiki_decisions_adr_007"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-006 Extender Soldadura \u2014 Pieza a Bote y Fusi\u00f3n de Botes.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_decisions_adr_006",
+      "target": "scripts_boatmanager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "seak_vault_wiki_decisions_adr_007",
+      "target": "scripts_player"
     },
     {
       "relation": "references",
@@ -679,29 +792,9 @@
       "target": "scripts_player"
     },
     {
-      "relation": "references",
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/decisions/ADR-006 Extender Soldadura \u2014 Pieza a Bote y Fusi\u00f3n de Botes.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "seak_vault_wiki_decisions_adr_006",
-      "target": "scripts_boatmanager"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "adr_007",
-      "target": "scripts_player"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
       "source_file": "Scripts/Player.gd",
       "source_location": null,
       "weight": 1.0,
@@ -709,17 +802,7 @@
       "target": "scripts_boatmanager"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Scripts/Player.gd",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "scripts_player",
-      "target": "scripts_piecedata"
-    },
-    {
-      "relation": "references",
+      "relation": "calls",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Scripts/Player.gd",
@@ -727,6 +810,16 @@
       "weight": 1.0,
       "source": "scripts_player",
       "target": "scripts_playerstats"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Scripts/BoatManager.gd",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "scripts_boatmanager",
+      "target": "scripts_piecedata"
     },
     {
       "relation": "references",
@@ -737,46 +830,6 @@
       "weight": 1.0,
       "source": "scripts_debughud",
       "target": "scripts_playerstats"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "adr_007",
-      "target": "adr_005"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/decisions/ADR-007 Modo Construcci\u00f3n \u2014 Ghost Preview y Snap.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "adr_007",
-      "target": "adr_006"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/hot.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "seak_vault_wiki_hot_cache",
-      "target": "adr_007"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/log.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "seak_vault_wiki_log_ops",
-      "target": "adr_007"
     }
   ],
   "hyperedges": [
@@ -784,30 +837,42 @@
       "id": "construction_system_flow",
       "label": "Construction System Flow",
       "nodes": [
+        "seak_vault_wiki_decisions_adr_007",
         "scripts_player",
         "scripts_boatmanager",
-        "adr_007",
-        "adr_006",
-        "adr_005"
+        "seak_vault_wiki_decisions_adr_006"
       ],
       "relation": "participate_in",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
+      "confidence_score": 0.9,
       "source_file": "Seak_Vault/wiki/hot.md"
     },
     {
-      "id": "player_stats_hud_loop",
-      "label": "Player Stats & HUD Loop",
+      "id": "player_stats_system",
+      "label": "Player Stats & HUD System",
       "nodes": [
-        "scripts_player",
         "scripts_playerstats",
         "scripts_debughud",
-        "adr_003"
+        "scripts_player"
       ],
       "relation": "participate_in",
       "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "Seak_Vault/wiki/log.md"
+    },
+    {
+      "id": "player_interaction_fixes",
+      "label": "Player Interaction & Physics Fixes",
+      "nodes": [
+        "scripts_player",
+        "concept_crouch_fix",
+        "concept_collision_tunneling_fix",
+        "adr_004"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/modules/Player Controller.md"
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
     },
     {
       "id": "water_system_core",

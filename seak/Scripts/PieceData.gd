@@ -14,6 +14,11 @@ class_name PieceData
 ## Solo relevante si el flag "storage" está activo.
 @export var storage_slots := 0
 
+## Escala visual (solo la malla, no la colisión) mientras el jugador sostiene
+## esta pieza — para que no tape tanto la vista al apuntar dónde soldarla.
+## Ajustable por pieza: si alguna se ve muy grande/chica reducida, corregir acá.
+@export_range(0.1, 1.0, 0.05) var held_view_scale := 0.5
+
 
 func has_flag(flag_bit: int) -> bool:
 	return (flags & flag_bit) != 0

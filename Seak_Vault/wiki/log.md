@@ -10,6 +10,68 @@ tags: [log]
 
 <!-- append-only: entradas nuevas ARRIBA -->
 
+## 2026-07-13 — Fix real de los huecos: el jugador empujaba sin querer el objetivo al pararse cerca
+- Con una segunda captura (ghost gigante verde) se separaron dos fenómenos: (1) el "ghost gigante" no era bug — escala exacta 1.0, posición al ras; era solo la cámara a ~0.5m del objetivo (perspectiva normal al acercarse mucho a un objetivo angosto). El usuario decidió no tocar esto. (2) El hueco real SÍ se reprodujo, con una causa nueva: el jugador empuja físicamente objetivos livianos (Tubo PVC, 4kg) al pararse cerca para apuntarlos, usando el mecanismo de empuje de la Fase 1 (`_interact_with_rigid_bodies`, 200N). El objetivo se corre entre el momento en que el ghost calcula la posición y el momento de confirmar.
+- Reproducido headless: tubo asentado en el piso + jugador parado cerca 30 frames (0.5s) sin el fix → se corre varios centímetros; con el fix → deriva de solo 0.0015m.
+- Fix: excepción de colisión temporal jugador↔objetivo mientras `_weld_target` sea válido (mismo mecanismo que ya existía para la pieza sostenida), actualizada en `_update_weld_preview` y limpiada en `_clear_weld_preview`.
+- Actualizado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]] (nueva sección "Quinta ronda").
+
+## 2026-07-13 — Fix: encogido perdido al sostener un bote + investigación de huecos con rotaciones (sin cerrar)
+- Reportado con captura: (1) el sistema de soldadura seguía sin ser perfecto, sobre todo con rotaciones, quedaban huecos; (2) al sostener un bote ya soldado, se perdía el efecto de encogido visual y volvía a tapar la vista.
+- (2) Fix aplicado (solución propuesta por el usuario): `_apply_held_view_scale` ahora, si lo sostenido es un `BoatManager`, usa el `held_view_scale` MÁS CHICO entre todas sus piezas y lo aplica a todas las mallas del bote. Validado headless: bote se encoge 0.5x al agarrar, restaura 1.0x exacto al soltar.
+- (1) Investigado sin poder reproducirlo: stress test de las 64 combinaciones de rotación manual (yaw×pitch×roll) contra un objetivo fijo, y soldar contra una pieza YA rotada dentro de un bote existente — ambos dan 0.0 de hueco en todos los casos. La matemática del snap se sostiene. Queda pendiente conseguir la secuencia exacta de pasos que produjo la captura para reproducirlo puntualmente.
+- Actualizado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]] (nueva sección "Cuarta ronda").
+
+## 2026-07-13 — Fix: hueco visible entre piezas soldadas (Barril + Tubo PVC)
+- Reportado con captura: Barril y Tubo PVC quedaban soldados con un hueco entre ambos en vez de tocarse.
+- Reproducido headless: el offset "al ras" por tamaño real (fix anterior) calculaba la posición exacta de contacto, pero el redondeo a la rejilla de 0.25m que corría DESPUÉS movía los 3 ejes por igual, incluyendo el de contacto — 0.052m de hueco medido, sin ninguna rotación de por medio.
+- Primer intento (insuficiente): dejar exacto solo el eje más alineado con la normal del impacto, redondeando los otros dos. El Tubo PVC es tan angosto (radio 0.05) que redondear los ejes tangenciales igual podía desplazar el contacto hasta 0.125m, más que su propio radio.
+- Fix final: se quitó la rejilla de posición por completo (`snap_grid_size` eliminado) — sin una superficie de casco grande todavía donde alinear varios tablones en fila tenga sentido, no aporta nada y sí puede separar piezas angostas. `_compute_snap_transform` devuelve ahora la posición al ras exacta, sin redondeo.
+- Validado headless: la reproducción exacta del bug da `0.0` de diferencia entre la posición calculada y la usada para soldar.
+- Actualizado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]] (nueva sección "Tercera ronda").
+
+## 2026-07-13 — 5 fixes de ergonomía en el modo construcción: tunneling, pitch, encogido customizable, capas de colisión
+- Reportados por el usuario tras seguir probando: (1) piezas como el Tubo PVC se atravesaban al soldar; (2) mirando hacia arriba había mucha menos libertad de colocación que mirando hacia abajo, sospechaba del raycast; (3) difícil encajar piezas "perfectas" borde a borde; (4) la pieza sostenida seguía tapando mucha vista pese al HoldPoint más bajo; (5) preguntó qué pasaría si suelta una pieza atravesando el suelo, sin colisión activa.
+- (2) Confirmado: pitch clampeado a `[-80°,60°]`, asimétrico desde ADR-004 (solo se amplió el límite de abajo). Fix: `[-80°,80°]`.
+- (1)+(3) Causa: el snap empujaba la pieza un padding FIJO de 0.05m a lo largo de la normal del impacto, sin considerar el tamaño real de la pieza — el Tubo PVC acostado (radio 0.05, altura 1.5) puede tener hasta 0.75 de semi-extensión en esa dirección. Fix: `_held_half_extent_toward()` calcula la semi-extensión real (fórmula exacta de proyección para BoxShape3D/CylinderShape3D) según la rotación que la pieza va a tener, y el snap empuja esa distancia + 0.02, no 0.05 fijos.
+- (4) Nuevo `PieceData.held_view_scale` (default 0.5, customizable por pieza como pidió el usuario): encoge solo la MALLA (no la colisión) de la pieza sostenida. El ghost sigue mostrando el tamaño real (`_build_ghost_for` usa la escala guardada antes de encoger, no la actual).
+- (5) Se reemplazó "desactivar toda la colisión mientras se sostiene" por un esquema de **capas**: capa 1=entorno (sin cambios), capa 2=piezas/botes. Sosteniendo algo: `layer=0,mask=1` (solo entorno — nunca cae al vacío) en vez de `layer=2,mask=3` (normal, con otras piezas). Se restaura al soltar o justo antes de soldar/migrar. Si queda algo superpuesto al restaurar, el motor la empuja afuera suavemente (depenetración normal), no se traba ni cae.
+- Validado headless: pitch ±80°; capas 2/3→0/1→2/3 en los 3 momentos; escala de malla se reduce y restaura exacta; `_held_half_extent_toward` da 0.75 para el Tubo PVC acostado (mitad exacta de 1.5) y el snap empuja esa distancia; soldadura final con masa correcta.
+- Actualizado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]] (nueva sección), [[Player Controller]], `Scripts/PieceData.gd` (`held_view_scale`), `Scenes/LoosePiece.tscn` (capas), `Scripts/BoatManager.gd` (capas al crear).
+
+## 2026-07-13 — Ajuste al modo construcción: HoldPoint bajo + sin colisión, rotación manual en 3 ejes
+- Reportado tras implementar el Grupo 4: la pieza sostenida tapaba la vista al apuntar el ghost (flotaba centrada frente a la cámara), y sin control de rotación manual era difícil ensamblar piezas a gusto (el snap heredaba el tumbado físico aleatorio).
+- Fix 1: `HoldPoint` bajado de `(0,0,-1.2)` a `(0,-0.35,-1.0)` (World.tscn) + colisión completamente desactivada en la pieza sostenida (`_set_held_collision_enabled`, nuevo en Player.gd) — sin la colisión desactivada, el HoldPoint más bajo haría que la pieza rozara terreno/otras piezas. Se reactiva al soltar sin soldar y ANTES de mover/migrar al confirmar (si no, el shape migrado hereda `disabled=true` y el bote nace sin colisión real — mismo patrón de bug que ADR-005, por otra causa).
+- Fix 2 (analizado con el usuario antes de implementar): se evaluó si permitir rotación libre en 3 ejes rompía `walkable`/`grabbable_edge`/`RowingStation` (Fase 3, asumen orientación "de pie" natural). Conclusión: solo importa con ángulos intermedios y solo cuando esos sistemas existan (ninguno implementado todavía); restringiendo a pasos de 90° por eje, la pieza siempre queda en una de las 24 orientaciones "de cubo", alineada a ejes. Se implementó: 3 ejes, 90°/tecla (`rotate_yaw`=R, `rotate_pitch`=T, `rotate_roll`=Y), acumulados en `_manual_rotation` (Basis, reseteado en cada `_grab`), reemplazando la derivación de yaw desde el tumbado físico.
+- Pendiente anotado para Fase 3: cuando se implementen esos flags, van a necesitar ser conscientes de la orientación REAL de la pieza, no solo confiar en el flag de `PieceData`.
+- Validado headless: colisión disabled→true al agarrar, →false al soltar y al confirmar (shape migrado al bote sin disabled); ghost refleja `_manual_rotation` exactamente; weld final con masa correcta.
+- Actualizado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]] (nueva sección), [[Player Controller]], `project.godot` (`rotate_yaw`/`rotate_pitch`/`rotate_roll`), `Scenes/World.tscn` (HoldPoint).
+
+## 2026-07-13 — Fase 2 Grupo 4: modo construcción real (ghost preview + snap), se retira la tecla G
+- El usuario preguntó por qué haría falta una tecla aparte para confirmar la soldadura si ya existe `interact` — no hacía falta. Se retiró la acción `weld` de `project.godot` por completo.
+- `Player.gd`: `_update_weld_preview()` (raycast + ghost verde/rojo, corre cada frame mientras se sostiene algo) + `_compute_snap_transform()` (rejilla 0.25m, rotación snap a 90°) + `_confirm_weld()` (mueve la pieza sostenida a la pose exacta del ghost ANTES de soldar, para que el resultado coincida con la preview). `_handle_interaction`: `interact` (E) suelda si hay objetivo válido, si no suelta — mismo botón, sin acción nueva.
+- Ghost: `Node3D` con un `MeshInstance3D` duplicado por cada mesh de la pieza/bote sostenido (soporta botes de varias piezas, árbol plano); material `StandardMaterial3D` translúcido sin sombra.
+- Validado headless (2 casos, sin simular input real): objetivo válido → ghost verde, snap exacto a múltiplos de 0.25, confirma y suelda (mass=23 tras Barril+Puerta, igual que Grupo 2/3); objetivo inválido (Cube) → ghost rojo, confirmar solo suelta, no crea bote.
+- Creado: [[ADR-007 Modo Construcción — Ghost Preview y Snap]]. Actualizados: [[Roadmap Prototipo SeaK]] (Grupo 4 marcado), [[Player Controller]], `project.godot` (acción `weld` eliminada).
+
+## 2026-07-13 — Fase 2 Grupo 3: soldar pieza→bote existente y bote→bote
+- Extiende [[ADR-005 BoatManager — Génesis de Botes]] (Grupo 2, que solo cubría génesis de 2 LoosePiece): ahora una soldadura sí se puede volver a fusionar con más piezas u otros botes — la limitación que el usuario señaló antes de arrancar este grupo.
+- Refactor previo: `_migrate_piece` se separó en `_adopt_piece(nodes, piece_data)` (reparenta mesh+shape sueltos, no asume que vienen de una LoosePiece) + `queue_free()` de la pieza; necesario porque fusionar botes reparenta nodos que ya son hijos de OTRO BoatManager, no de una LoosePiece.
+- Nuevo: `weld_piece_to_boat(boat, piece, neighbor_id)` — pieza→bote existente, "solo pasos 2-4" (sin génesis), velocidad promediada por masa, conecta al vecino indicado.
+- Nuevo: `weld_boats(boat_a, boat_b)` — bote→bote, migra al de MÁS PIEZAS (no más masa), reasigna ids, reconstruye aristas internas del bote absorbido, agrega un puente geométrico entre ambos grafos (`nearest_piece_id`, aproximación mientras no haya snap real).
+- Nuevo bookkeeping en `BoatManager`: `_piece_nodes` (piece_id→nodos), `_shape_to_piece_id` + `piece_id_for_shape_index()` (traduce el índice de shape de un raycast a la pieza específica dentro de un bote), `nearest_piece_id()`.
+- `Player._try_weld()` extendido a las 4 combinaciones pieza/bote (antes solo pieza+pieza).
+- Validado headless: Barril+Puerta→bote1(23,2); +Palé→bote1(35,3, grafo correcto); Nevera+TuboPVC→bote2(14,2); fusión bote1+bote2→bote1 sobrevive (49,5 piezas, grafo con puente correcto, bote2 liberado, 10 hijos = 5×mesh+shape); 120 frames sin tunneling ni explosión.
+- Creado: [[ADR-006 Extender Soldadura — Pieza a Bote y Fusión de Botes]]. Actualizado: [[Roadmap Prototipo SeaK]] (Grupo 3 marcado).
+
+## 2026-07-13 — Fase 2 Grupo 2: BoatManager (génesis, ConnectionGraph, masa/COM)
+- Implementado el núcleo de soldadura de [[Roadmap Prototipo SeaK]] Fase 2: `Scripts/BoatManager.gd` (`RigidBody3D`), `weld_two_loose_pieces(a, b)` estático — centroide, velocidad promediada por masa, migración de mesh+shape, `ConnectionGraph`, recálculo de masa/COM custom (nunca inercia custom, godot#78750).
+- Bug encontrado y corregido durante el desarrollo: un `Node3D` intermedio por pieza (siguiendo la wording literal de "AttachedPiece" en el análisis técnico) dejaba el `CollisionShape3D` sin registrar — Godot solo lo registra si el padre INMEDIATO es un `CollisionObject3D`. El bote soldado caía atravesando todo (masa/COM correctos, cero colisión real). Fix: mesh+shape migran como hijos directos del `BoatManager`, sin wrapper — coincide además con "el scene tree se mantiene plano" del propio diseño.
+- Bug secundario: `global_position` fijado antes de `add_child` reventaba (`!is_inside_tree()`). Reordenado.
+- Disparador de prueba provisorio en `Player.gd`: sostener una pieza + apuntar a otra + tecla **G** (`weld`) suelda. Se reemplaza en Grupo 4 por el modo construcción real. `_raycast_interact()` ahora acepta exclusión adicional (evita que el rayo choque contra la propia pieza sostenida).
+- Validado headless: Barril(8)+Puerta(15) soldados → masa=23, COM=(0.152,0,0) (coincide con cálculo a mano), grafo correcto, sin tunneling ni explosión en 120 frames.
+- Creado: [[ADR-005 BoatManager — Génesis de Botes]]. Actualizados: [[Roadmap Prototipo SeaK]] (Grupo 2 marcado), `project.godot` (acción `weld`).
+
 ## 2026-07-12 — Fix: piezas planas (Chapa, Puerta) atravesaban la isla al lanzarlas
 - Reportado: al lanzar/empujar con fuerza una pieza plana, atravesaba el `CSGBox3D` usado como isla de prueba.
 - Causa: `CSGBox3D.use_collision=true` genera colisión **cóncava** (trimesh), no un `BoxShape3D` convexo, aunque sea visualmente un rectángulo simple. Los colliders cóncavos son mucho más propensos a tunneling con cuerpos delgados/rápidos — a la velocidad de un lanzamiento fuerte, el desplazamiento por paso de física se salta la detección discreta contra el trimesh (no pasaba con una simple caída por gravedad, velocidad baja).

@@ -138,7 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76459074, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=218333253]
 
 [node name="HoldPoint" type="Marker3D" parent="Player/Head/Camera3D" unique_id=1385680986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -1.0)
 
 [node name="PlayerStats" type="Node" parent="Player" unique_id=1023192757]
 script = ExtResource("4_stats")
