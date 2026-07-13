@@ -1,16 +1,16 @@
 {
   "Seak_Vault/.obsidian/app.json": {
-    "mtime": 1783881288.9662728,
+    "mtime": 1783914041.4320436,
     "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
     "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
   },
   "Seak_Vault/.obsidian/appearance.json": {
-    "mtime": 1783881288.967274,
+    "mtime": 1783914041.433045,
     "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
     "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
   },
   "Seak_Vault/.obsidian/core-plugins.json": {
-    "mtime": 1783881288.528138,
+    "mtime": 1783914040.965357,
     "ast_hash": "7c877bea49eaeabb100563bd157b9051",
     "semantic_hash": "7c877bea49eaeabb100563bd157b9051"
   },
@@ -20,9 +20,9 @@
     "semantic_hash": "0f3391b53c2a6cdee2cd8911c95b7338"
   },
   "Seak_Vault/.obsidian/workspace.json": {
-    "mtime": 1783883625.2224724,
-    "ast_hash": "688e45453e73ebebc7696537c7450dc7",
-    "semantic_hash": "688e45453e73ebebc7696537c7450dc7"
+    "mtime": 1783918333.1817212,
+    "ast_hash": "e0030d518af91bd605dc58b0f5446e8d",
+    "semantic_hash": "e0030d518af91bd605dc58b0f5446e8d"
   },
   "README.md": {
     "mtime": 1783790852.686176,
@@ -30,9 +30,9 @@
     "semantic_hash": "b83f894ac8adc24da7af128987d74086"
   },
   "Seak_Vault/CLAUDE.md": {
-    "mtime": 1783831417.813047,
-    "ast_hash": "7a020f00c43b652650d498fd71d079f4",
-    "semantic_hash": "7a020f00c43b652650d498fd71d079f4"
+    "mtime": 1783915513.5677056,
+    "ast_hash": "081ebc383db3960c6c92eeeb582bd416",
+    "semantic_hash": "081ebc383db3960c6c92eeeb582bd416"
   },
   "Seak_Vault/wiki/concepts/CharacterController.md": {
     "mtime": 1783793753.1934545,
@@ -75,9 +75,9 @@
     "semantic_hash": "aaf49b53dfe3428ae8a449041895edbc"
   },
   "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md": {
-    "mtime": 1783840270.7415233,
-    "ast_hash": "26d932cbd2a20cdea05207a7e2c6a594",
-    "semantic_hash": "26d932cbd2a20cdea05207a7e2c6a594"
+    "mtime": 1783915447.664034,
+    "ast_hash": "b49e7735bd5ffecf59444e7a4e9ed273",
+    "semantic_hash": "b49e7735bd5ffecf59444e7a4e9ed273"
   },
   "Seak_Vault/wiki/hot.md": {
     "mtime": 1783881683.5812411,
@@ -85,9 +85,9 @@
     "semantic_hash": "68caace96fd0d8783f5f6d003755a246"
   },
   "Seak_Vault/wiki/index.md": {
-    "mtime": 1783833809.034969,
-    "ast_hash": "a32b902feb0fa61b6b626254f8aa1821",
-    "semantic_hash": "a32b902feb0fa61b6b626254f8aa1821"
+    "mtime": 1783915508.9389653,
+    "ast_hash": "436fd81dd29253b7fc76db472a7e3ea3",
+    "semantic_hash": "436fd81dd29253b7fc76db472a7e3ea3"
   },
   "Seak_Vault/wiki/log.md": {
     "mtime": 1783881623.8377736,
@@ -105,9 +105,9 @@
     "semantic_hash": "b17c439146918892fab6ae649953299b"
   },
   "Seak_Vault/wiki/modules/Player Controller.md": {
-    "mtime": 1783837441.535848,
-    "ast_hash": "4c081e5b929de3a4609f969288fc86bf",
-    "semantic_hash": "4c081e5b929de3a4609f969288fc86bf"
+    "mtime": 1783915463.814499,
+    "ast_hash": "fbb6636a32306eb1aef35c64a72ec995",
+    "semantic_hash": "fbb6636a32306eb1aef35c64a72ec995"
   },
   "Seak_Vault/wiki/modules/Sistema de Agua.md": {
     "mtime": 1783793492.2541184,

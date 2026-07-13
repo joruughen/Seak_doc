@@ -1,82 +1,94 @@
 {
   "communities": {
     "0": [
-      "graphify_tool",
-      "seak_project",
-      "seak_vault_claude",
-      "wiki_hot",
-      "wiki_index",
-      "wiki_log",
-      "wiki_overview"
+      "concept_crouch_fix",
+      "scripts_debughud",
+      "scripts_player",
+      "scripts_playerstats",
+      "wiki_modules_player_controller"
     ],
     "1": [
+      "adr_004",
+      "scenes_loosepiece",
+      "scripts_piecedata",
+      "wiki_log"
+    ],
+    "2": [
       "seak_vault_wiki_concepts_shader_de_agua",
       "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas",
       "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua",
       "seak_vault_wiki_modules_sistema_de_agua"
     ],
-    "2": [
-      "scenes_cube",
-      "scenes_water",
-      "scripts_player"
-    ],
     "3": [
+      "concept_collision_tunneling_fix",
+      "resources_pieces",
+      "scenes_world"
+    ],
+    "4": [
+      "concept_fase2_grupo1",
+      "wiki_hot",
+      "wiki_index"
+    ],
+    "5": [
       "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
       "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
       "seak_vault_wiki_modules_cube_flotante"
     ],
-    "4": [
-      "seak_vault_wiki_concepts_charactercontroller",
-      "seak_vault_wiki_modules_player_controller"
-    ],
-    "5": [
-      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion",
-      "seak_vault_wiki_design_roadmap_prototipo_seak"
-    ],
     "6": [
-      "readme"
+      "scenes_cube",
+      "scenes_water"
     ],
     "7": [
-      "scripts_debughud"
+      "scripts_boatmanager",
+      "wiki_design_roadmap_prototipo_seak"
     ],
     "8": [
-      "scripts_playerstats"
+      "graphify_tool"
     ],
     "9": [
-      "seak_icon"
+      "readme"
     ],
     "10": [
-      "seak_vault_obsidian_app"
+      "seak_icon"
     ],
     "11": [
-      "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
+      "seak_project"
     ],
     "12": [
-      "seak_vault_wiki_hot"
+      "seak_vault_claude"
     ],
     "13": [
-      "seak_vault_wiki_index"
+      "seak_vault_obsidian_app"
     ],
     "14": [
-      "seak_vault_wiki_log"
+      "seak_vault_wiki_concepts_charactercontroller"
     ],
     "15": [
-      "seak_vault_wiki_modules_escena_world"
+      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
     ],
     "16": [
-      "seak_vault_wiki_overview"
+      "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
     ],
     "17": [
+      "seak_vault_wiki_modules_escena_world"
+    ],
+    "18": [
+      "seak_vault_wiki_overview"
+    ],
+    "19": [
       "shaders_water2_gdshader"
+    ],
+    "20": [
+      "wiki_overview"
     ]
   },
   "cohesion": {
-    "0": 0.2857142857142857,
+    "0": 0.6,
     "1": 0.6666666666666666,
     "2": 0.6666666666666666,
     "3": 0.6666666666666666,
-    "4": 1.0,
-    "5": 1.0,
+    "4": 0.6666666666666666,
+    "5": 0.6666666666666666,
     "6": 1.0,
     "7": 1.0,
     "8": 1.0,
@@ -88,9 +100,22 @@
     "14": 1.0,
     "15": 1.0,
     "16": 1.0,
-    "17": 1.0
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0
   },
   "gods": [
+    {
+      "id": "wiki_modules_player_controller",
+      "label": "Player Controller",
+      "degree": 3
+    },
+    {
+      "id": "adr_004",
+      "label": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
+      "degree": 3
+    },
     {
       "id": "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
       "label": "F\u00edsicas de Flotabilidad",
@@ -117,23 +142,13 @@
       "degree": 2
     },
     {
-      "id": "seak_vault_wiki_concepts_charactercontroller",
-      "label": "CharacterController",
-      "degree": 1
+      "id": "wiki_hot",
+      "label": "Hot Cache",
+      "degree": 2
     },
     {
       "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
       "label": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
-      "degree": 1
-    },
-    {
-      "id": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion",
-      "label": "ADR-003 \u2014 Sistema de Nado, Estamina e Interacci\u00f3n",
-      "degree": 1
-    },
-    {
-      "id": "seak_vault_wiki_design_roadmap_prototipo_seak",
-      "label": "Roadmap \u2014 Prototipo SeaK",
       "degree": 1
     },
     {
@@ -144,15 +159,26 @@
   ],
   "surprises": [
     {
-      "source": "Player Controller",
-      "target": "CharacterController",
+      "source": "Wiki Log",
+      "target": "ADR-004 Piezas Sueltas y Fix de Agarre Bajo",
       "source_files": [
-        "Seak_Vault/wiki/modules/Player Controller.md",
-        "Seak_Vault/wiki/concepts/CharacterController.md"
+        "wiki/log.md",
+        "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
       ],
-      "confidence": "INFERRED",
+      "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "inferred connection - not explicitly stated in source"
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Hot Cache",
+      "target": "Fase 2 Grupo 1: Datos Base",
+      "source_files": [
+        "wiki/hot.md",
+        "Seak_Vault/wiki/hot.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
     },
     {
       "source": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
@@ -186,21 +212,10 @@
       "confidence": "INFERRED",
       "relation": "references",
       "why": "inferred connection - not explicitly stated in source"
-    },
-    {
-      "source": "ADR-001 \u2014 Refactor del Shader de Agua",
-      "target": "Sincronizaci\u00f3n CPU-GPU de Olas",
-      "source_files": [
-        "Seak_Vault/wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
-        "Seak_Vault/wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "conceptually_related_to",
-      "why": "inferred connection - not explicitly stated in source"
     }
   ],
   "tokens": {
-    "input": 1382,
-    "output": 1503
+    "input": 9476,
+    "output": 1985
   }
 }

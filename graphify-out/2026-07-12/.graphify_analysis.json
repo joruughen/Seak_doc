@@ -1,77 +1,86 @@
 {
   "communities": {
     "0": [
+      "scenes_loosepiece",
+      "scenes_world",
+      "scripts_piecedata",
+      "wiki_decisions_adr_004",
+      "wiki_hot",
+      "wiki_index"
+    ],
+    "1": [
+      "scripts_debughud",
+      "scripts_player",
+      "scripts_playerstats",
+      "wiki_modules_player_controller"
+    ],
+    "2": [
       "seak_vault_wiki_concepts_shader_de_agua",
       "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas",
       "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua",
       "seak_vault_wiki_modules_sistema_de_agua"
     ],
-    "1": [
-      "scenes_cube",
-      "scenes_water",
-      "scripts_player"
-    ],
-    "2": [
+    "3": [
       "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
       "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
       "seak_vault_wiki_modules_cube_flotante"
     ],
-    "3": [
-      "seak_vault_wiki_concepts_charactercontroller",
-      "seak_vault_wiki_modules_player_controller"
-    ],
     "4": [
-      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion",
-      "seak_vault_wiki_design_roadmap_prototipo_seak"
+      "scenes_cube",
+      "scenes_water"
     ],
     "5": [
-      "readme"
+      "scripts_boatmanager",
+      "wiki_design_roadmap_prototipo_seak"
     ],
     "6": [
-      "scripts_debughud"
+      "graphify_tool"
     ],
     "7": [
-      "scripts_playerstats"
+      "readme"
     ],
     "8": [
       "seak_icon"
     ],
     "9": [
-      "seak_vault_claude"
+      "seak_project"
     ],
     "10": [
-      "seak_vault_obsidian_app"
+      "seak_vault_claude"
     ],
     "11": [
-      "seak_vault_welcome"
+      "seak_vault_obsidian_app"
     ],
     "12": [
-      "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
+      "seak_vault_wiki_concepts_charactercontroller"
     ],
     "13": [
-      "seak_vault_wiki_hot"
+      "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
     ],
     "14": [
-      "seak_vault_wiki_index"
+      "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
     ],
     "15": [
-      "seak_vault_wiki_log"
-    ],
-    "16": [
       "seak_vault_wiki_modules_escena_world"
     ],
-    "17": [
+    "16": [
       "seak_vault_wiki_overview"
     ],
-    "18": [
+    "17": [
       "shaders_water2_gdshader"
+    ],
+    "18": [
+      "wiki_log"
+    ],
+    "19": [
+      "wiki_overview"
     ]
   },
   "cohesion": {
-    "0": 0.6666666666666666,
+    "0": 0.4,
     "1": 0.6666666666666666,
     "2": 0.6666666666666666,
-    "3": 1.0,
+    "3": 0.6666666666666666,
     "4": 1.0,
     "5": 1.0,
     "6": 1.0,
@@ -86,9 +95,20 @@
     "15": 1.0,
     "16": 1.0,
     "17": 1.0,
-    "18": 1.0
+    "18": 1.0,
+    "19": 1.0
   },
   "gods": [
+    {
+      "id": "wiki_decisions_adr_004",
+      "label": "ADR-004 \u2014 Piezas Sueltas y Fix de Agarre Bajo",
+      "degree": 3
+    },
+    {
+      "id": "wiki_modules_player_controller",
+      "label": "Player Controller",
+      "degree": 3
+    },
     {
       "id": "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
       "label": "F\u00edsicas de Flotabilidad",
@@ -115,23 +135,13 @@
       "degree": 2
     },
     {
-      "id": "seak_vault_wiki_concepts_charactercontroller",
-      "label": "CharacterController",
-      "degree": 1
+      "id": "wiki_hot",
+      "label": "Hot Cache",
+      "degree": 2
     },
     {
       "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
       "label": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
-      "degree": 1
-    },
-    {
-      "id": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion",
-      "label": "ADR-003 \u2014 Sistema de Nado, Estamina e Interacci\u00f3n",
-      "degree": 1
-    },
-    {
-      "id": "seak_vault_wiki_design_roadmap_prototipo_seak",
-      "label": "Roadmap \u2014 Prototipo SeaK",
       "degree": 1
     },
     {
@@ -142,15 +152,15 @@
   ],
   "surprises": [
     {
-      "source": "Player Controller",
-      "target": "CharacterController",
+      "source": "Hot Cache",
+      "target": "ADR-004 \u2014 Piezas Sueltas y Fix de Agarre Bajo",
       "source_files": [
-        "Seak_Vault/wiki/modules/Player Controller.md",
-        "Seak_Vault/wiki/concepts/CharacterController.md"
+        "wiki/hot.md",
+        "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
       ],
-      "confidence": "INFERRED",
+      "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "inferred connection - not explicitly stated in source"
+      "why": "connects across different repos/directories"
     },
     {
       "source": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
@@ -198,7 +208,7 @@
     }
   ],
   "tokens": {
-    "input": 1747,
-    "output": 1599
+    "input": 13090,
+    "output": 2143
   }
 }

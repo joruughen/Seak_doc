@@ -4,6 +4,34 @@
   "graph": {
     "hyperedges": [
       {
+        "id": "fase_2_grupo_1_implementation",
+        "label": "Fase 2 Grupo 1: Base Data Implementation",
+        "nodes": [
+          "scripts_piecedata",
+          "scenes_loosepiece",
+          "wiki_decisions_adr_004",
+          "wiki_design_roadmap_prototipo_seak"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
+      },
+      {
+        "id": "player_interaction_system",
+        "label": "Player Interaction & Stats System",
+        "nodes": [
+          "scripts_player",
+          "scripts_playerstats",
+          "scripts_debughud",
+          "wiki_modules_player_controller"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": "Seak_Vault/wiki/modules/Player Controller.md"
+      },
+      {
         "id": "water_system_core",
         "label": "Core Water System",
         "nodes": [
@@ -78,39 +106,15 @@
       "source_file": "Seak_Vault/.obsidian/app.json",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 10,
+      "community": 11,
       "norm_label": "app.json",
       "id": "seak_vault_obsidian_app"
-    },
-    {
-      "label": "Player.gd",
-      "file_type": "code",
-      "source_file": "Scripts/Player.gd",
-      "community": 1,
-      "norm_label": "player.gd",
-      "id": "scripts_player"
-    },
-    {
-      "label": "PlayerStats.gd",
-      "file_type": "code",
-      "source_file": "Scripts/PlayerStats.gd",
-      "community": 7,
-      "norm_label": "playerstats.gd",
-      "id": "scripts_playerstats"
-    },
-    {
-      "label": "DebugHUD.gd",
-      "file_type": "code",
-      "source_file": "Scripts/DebugHUD.gd",
-      "community": 6,
-      "norm_label": "debughud.gd",
-      "id": "scripts_debughud"
     },
     {
       "label": "Cube.gd",
       "file_type": "code",
       "source_file": "Scenes/Cube.gd",
-      "community": 1,
+      "community": 4,
       "norm_label": "cube.gd",
       "id": "scenes_cube"
     },
@@ -118,7 +122,7 @@
       "label": "Water.gd",
       "file_type": "code",
       "source_file": "Scenes/Water.gd",
-      "community": 1,
+      "community": 4,
       "norm_label": "water.gd",
       "id": "scenes_water"
     },
@@ -126,7 +130,7 @@
       "label": "Water2.gdshader",
       "file_type": "code",
       "source_file": "Shaders/Water2.gdshader",
-      "community": 18,
+      "community": 17,
       "norm_label": "water2.gdshader",
       "id": "shaders_water2_gdshader"
     },
@@ -134,180 +138,282 @@
       "label": "Seak_doc",
       "file_type": "document",
       "source_file": "README.md",
-      "id": "readme",
-      "community": 5,
-      "norm_label": "seak_doc"
-    },
-    {
-      "label": "SeaK Wiki: LLM Wiki",
-      "file_type": "document",
-      "source_file": "Seak_Vault/CLAUDE.md",
-      "id": "seak_vault_claude",
-      "community": 9,
-      "norm_label": "seak wiki: llm wiki"
-    },
-    {
-      "label": "Welcome to the Vault",
-      "file_type": "document",
-      "source_file": "Seak_Vault/Welcome.md",
-      "id": "seak_vault_welcome",
-      "community": 11,
-      "norm_label": "welcome to the vault"
+      "community": 7,
+      "norm_label": "seak_doc",
+      "id": "readme"
     },
     {
       "label": "CharacterController",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/CharacterController.md",
-      "id": "seak_vault_wiki_concepts_charactercontroller",
-      "community": 3,
-      "norm_label": "charactercontroller"
+      "community": 12,
+      "norm_label": "charactercontroller",
+      "id": "seak_vault_wiki_concepts_charactercontroller"
     },
     {
       "label": "F\u00edsicas de Flotabilidad",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/F\u00edsicas de Flotabilidad.md",
-      "id": "seak_vault_wiki_concepts_fisicas_de_flotabilidad",
-      "community": 2,
-      "norm_label": "fisicas de flotabilidad"
+      "community": 3,
+      "norm_label": "fisicas de flotabilidad",
+      "id": "seak_vault_wiki_concepts_fisicas_de_flotabilidad"
     },
     {
       "label": "Shader de Agua",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/Shader de Agua.md",
-      "id": "seak_vault_wiki_concepts_shader_de_agua",
-      "community": 0,
-      "norm_label": "shader de agua"
+      "community": 2,
+      "norm_label": "shader de agua",
+      "id": "seak_vault_wiki_concepts_shader_de_agua"
     },
     {
       "label": "Sincronizaci\u00f3n CPU-GPU de Olas",
       "file_type": "concept",
       "source_file": "Seak_Vault/wiki/concepts/Sincronizaci\u00f3n CPU-GPU de Olas.md",
-      "id": "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas",
-      "community": 0,
-      "norm_label": "sincronizacion cpu-gpu de olas"
+      "community": 2,
+      "norm_label": "sincronizacion cpu-gpu de olas",
+      "id": "seak_vault_wiki_concepts_sincronizacion_cpu_gpu_de_olas"
     },
     {
       "label": "ADR-001 \u2014 Refactor del Shader de Agua",
       "file_type": "rationale",
       "source_file": "Seak_Vault/wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
-      "id": "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua",
-      "community": 0,
-      "norm_label": "adr-001 \u2014 refactor del shader de agua"
+      "community": 2,
+      "norm_label": "adr-001 \u2014 refactor del shader de agua",
+      "id": "seak_vault_wiki_decisions_adr_001_refactor_del_shader_de_agua"
     },
     {
       "label": "ADR-002 \u2014 Estabilizaci\u00f3n Player-Cube",
       "file_type": "rationale",
       "source_file": "Seak_Vault/wiki/decisions/ADR-002 Estabilizaci\u00f3n Player-Cube.md",
-      "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube",
-      "community": 2,
-      "norm_label": "adr-002 \u2014 estabilizacion player-cube"
+      "community": 3,
+      "norm_label": "adr-002 \u2014 estabilizacion player-cube",
+      "id": "seak_vault_wiki_decisions_adr_002_estabilizacion_player_cube"
     },
     {
       "label": "ADR-003 \u2014 Sistema de Nado, Estamina e Interacci\u00f3n",
       "file_type": "rationale",
       "source_file": "Seak_Vault/wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacci\u00f3n.md",
-      "id": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion",
-      "community": 4,
-      "norm_label": "adr-003 \u2014 sistema de nado, estamina e interaccion"
+      "community": 13,
+      "norm_label": "adr-003 \u2014 sistema de nado, estamina e interaccion",
+      "id": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
     },
     {
       "label": "An\u00e1lisis T\u00e9cnico \u2014 Prototipo SeaK",
       "file_type": "document",
       "source_file": "Seak_Vault/wiki/design/An\u00e1lisis T\u00e9cnico Prototipo SeaK.md",
-      "id": "seak_vault_wiki_design_analisis_tecnico_prototipo_seak",
-      "community": 12,
-      "norm_label": "analisis tecnico \u2014 prototipo seak"
-    },
-    {
-      "label": "Roadmap \u2014 Prototipo SeaK",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md",
-      "id": "seak_vault_wiki_design_roadmap_prototipo_seak",
-      "community": 4,
-      "norm_label": "roadmap \u2014 prototipo seak"
-    },
-    {
-      "label": "Hot Cache",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/hot.md",
-      "id": "seak_vault_wiki_hot",
-      "community": 13,
-      "norm_label": "hot cache"
-    },
-    {
-      "label": "\u00cdndice Maestro",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/index.md",
-      "id": "seak_vault_wiki_index",
       "community": 14,
-      "norm_label": "indice maestro"
-    },
-    {
-      "label": "Log de Operaciones",
-      "file_type": "document",
-      "source_file": "Seak_Vault/wiki/log.md",
-      "id": "seak_vault_wiki_log",
-      "community": 15,
-      "norm_label": "log de operaciones"
+      "norm_label": "analisis tecnico \u2014 prototipo seak",
+      "id": "seak_vault_wiki_design_analisis_tecnico_prototipo_seak"
     },
     {
       "label": "Cube Flotante",
       "file_type": "code",
       "source_file": "Seak_Vault/wiki/modules/Cube Flotante.md",
-      "id": "seak_vault_wiki_modules_cube_flotante",
-      "community": 2,
-      "norm_label": "cube flotante"
+      "community": 3,
+      "norm_label": "cube flotante",
+      "id": "seak_vault_wiki_modules_cube_flotante"
     },
     {
       "label": "Escena World",
       "file_type": "code",
       "source_file": "Seak_Vault/wiki/modules/Escena World.md",
-      "id": "seak_vault_wiki_modules_escena_world",
-      "community": 16,
-      "norm_label": "escena world"
-    },
-    {
-      "label": "Player Controller",
-      "file_type": "code",
-      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
-      "id": "seak_vault_wiki_modules_player_controller",
-      "community": 3,
-      "norm_label": "player controller"
+      "community": 15,
+      "norm_label": "escena world",
+      "id": "seak_vault_wiki_modules_escena_world"
     },
     {
       "label": "Sistema de Agua",
       "file_type": "code",
       "source_file": "Seak_Vault/wiki/modules/Sistema de Agua.md",
-      "id": "seak_vault_wiki_modules_sistema_de_agua",
-      "community": 0,
-      "norm_label": "sistema de agua"
+      "community": 2,
+      "norm_label": "sistema de agua",
+      "id": "seak_vault_wiki_modules_sistema_de_agua"
     },
     {
       "label": "SeaK \u2014 Resumen de Arquitectura",
       "file_type": "document",
       "source_file": "Seak_Vault/wiki/overview.md",
-      "id": "seak_vault_wiki_overview",
-      "community": 17,
-      "norm_label": "seak \u2014 resumen de arquitectura"
+      "community": 16,
+      "norm_label": "seak \u2014 resumen de arquitectura",
+      "id": "seak_vault_wiki_overview"
     },
     {
       "label": "Seak Icon",
       "file_type": "image",
       "source_file": "seak/icon.svg",
-      "id": "seak_icon",
       "community": 8,
-      "norm_label": "seak icon"
+      "norm_label": "seak icon",
+      "id": "seak_icon"
+    },
+    {
+      "label": "Wiki Index",
+      "file_type": "document",
+      "source_file": "wiki/index.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "wiki index",
+      "id": "wiki_index"
+    },
+    {
+      "label": "Wiki Log",
+      "file_type": "document",
+      "source_file": "wiki/log.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 18,
+      "norm_label": "wiki log",
+      "id": "wiki_log"
+    },
+    {
+      "label": "Hot Cache",
+      "file_type": "document",
+      "source_file": "wiki/hot.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "hot cache",
+      "id": "wiki_hot"
+    },
+    {
+      "label": "Architecture Overview",
+      "file_type": "document",
+      "source_file": "wiki/overview.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 19,
+      "norm_label": "architecture overview",
+      "id": "wiki_overview"
+    },
+    {
+      "label": "SeaK Godot Project",
+      "file_type": "code",
+      "source_file": "seak/",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Jorge Melgarejo",
+      "contributor": null,
+      "community": 9,
+      "norm_label": "seak godot project",
+      "id": "seak_project"
+    },
+    {
+      "label": "Graphify Tool",
+      "file_type": "code",
+      "source_file": "python -m graphify",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "graphify tool",
+      "id": "graphify_tool"
+    },
+    {
+      "label": "CLAUDE.md",
+      "file_type": "document",
+      "source_file": "Seak_Vault/CLAUDE.md",
+      "id": "seak_vault_claude",
+      "community": 10,
+      "norm_label": "claude.md"
+    },
+    {
+      "label": "ADR-004 \u2014 Piezas Sueltas y Fix de Agarre Bajo",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "id": "wiki_decisions_adr_004",
+      "community": 0,
+      "norm_label": "adr-004 \u2014 piezas sueltas y fix de agarre bajo"
+    },
+    {
+      "label": "Roadmap \u2014 Prototipo SeaK",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md",
+      "id": "wiki_design_roadmap_prototipo_seak",
+      "community": 5,
+      "norm_label": "roadmap \u2014 prototipo seak"
+    },
+    {
+      "label": "Player Controller",
+      "file_type": "document",
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "id": "wiki_modules_player_controller",
+      "community": 1,
+      "norm_label": "player controller"
+    },
+    {
+      "label": "PieceData.gd",
+      "file_type": "code",
+      "source_file": "Scripts/PieceData.gd",
+      "id": "scripts_piecedata",
+      "community": 0,
+      "norm_label": "piecedata.gd"
+    },
+    {
+      "label": "LoosePiece.gd",
+      "file_type": "code",
+      "source_file": "Scenes/LoosePiece.gd",
+      "id": "scenes_loosepiece",
+      "community": 0,
+      "norm_label": "loosepiece.gd"
+    },
+    {
+      "label": "Player.gd",
+      "file_type": "code",
+      "source_file": "Scripts/Player.gd",
+      "id": "scripts_player",
+      "community": 1,
+      "norm_label": "player.gd"
+    },
+    {
+      "label": "PlayerStats.gd",
+      "file_type": "code",
+      "source_file": "Scripts/PlayerStats.gd",
+      "id": "scripts_playerstats",
+      "community": 1,
+      "norm_label": "playerstats.gd"
+    },
+    {
+      "label": "DebugHUD.gd",
+      "file_type": "code",
+      "source_file": "Scripts/DebugHUD.gd",
+      "id": "scripts_debughud",
+      "community": 1,
+      "norm_label": "debughud.gd"
+    },
+    {
+      "label": "World.tscn",
+      "file_type": "code",
+      "source_file": "Scenes/World.tscn",
+      "id": "scenes_world",
+      "community": 0,
+      "norm_label": "world.tscn"
+    },
+    {
+      "label": "BoatManager",
+      "file_type": "concept",
+      "source_file": "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md",
+      "id": "scripts_boatmanager",
+      "community": 5,
+      "norm_label": "boatmanager"
     }
   ],
   "links": [
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "Scripts/Player.gd",
-      "source": "scripts_player",
-      "target": "scenes_cube"
-    },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
@@ -315,14 +421,6 @@
       "source_file": "Scenes/Cube.gd",
       "source": "scenes_cube",
       "target": "scenes_water"
-    },
-    {
-      "relation": "references",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "Seak_Vault/wiki/modules/_index.md",
-      "source": "seak_vault_wiki_modules_player_controller",
-      "target": "seak_vault_wiki_concepts_charactercontroller"
     },
     {
       "relation": "conceptually_related_to",
@@ -376,12 +474,120 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "Seak_Vault/wiki/design/_index.md",
-      "source": "seak_vault_wiki_design_roadmap_prototipo_seak",
-      "target": "seak_vault_wiki_decisions_adr_003_sistema_de_nado_estamina_e_interaccion"
+      "source_file": "Seak_Vault/wiki/index.md",
+      "source": "wiki_index",
+      "target": "wiki_hot"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/hot.md",
+      "source": "wiki_hot",
+      "target": "wiki_decisions_adr_004"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "source": "wiki_decisions_adr_004",
+      "target": "scenes_loosepiece"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "source": "wiki_decisions_adr_004",
+      "target": "scripts_piecedata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/design/Roadmap Prototipo SeaK.md",
+      "source": "wiki_design_roadmap_prototipo_seak",
+      "target": "scripts_boatmanager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "source": "wiki_modules_player_controller",
+      "target": "scripts_debughud"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "source": "wiki_modules_player_controller",
+      "target": "scripts_player"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "source": "wiki_modules_player_controller",
+      "target": "scripts_playerstats"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+      "source": "scenes_loosepiece",
+      "target": "scripts_piecedata"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/log.md",
+      "source": "scenes_world",
+      "target": "scenes_loosepiece"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md",
+      "source": "scripts_player",
+      "target": "scripts_playerstats"
     }
   ],
   "hyperedges": [
+    {
+      "id": "fase_2_grupo_1_implementation",
+      "label": "Fase 2 Grupo 1: Base Data Implementation",
+      "nodes": [
+        "scripts_piecedata",
+        "scenes_loosepiece",
+        "wiki_decisions_adr_004",
+        "wiki_design_roadmap_prototipo_seak"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Seak_Vault/wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md"
+    },
+    {
+      "id": "player_interaction_system",
+      "label": "Player Interaction & Stats System",
+      "nodes": [
+        "scripts_player",
+        "scripts_playerstats",
+        "scripts_debughud",
+        "wiki_modules_player_controller"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "Seak_Vault/wiki/modules/Player Controller.md"
+    },
     {
       "id": "water_system_core",
       "label": "Core Water System",
@@ -449,5 +655,5 @@
       "confidence_score": 1.0
     }
   ],
-  "built_at_commit": "e9fbc939d41ef8e45a7e3b9ac31b4fb318f5e071"
+  "built_at_commit": "dff8c69af55cff77bea2f1e915f2a2b2c96675c7"
 }

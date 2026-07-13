@@ -6,6 +6,14 @@
 [ext_resource type="Script" uid="uid://deg1xu1w3eqkb" path="res://Scenes/Water.gd" id="3_p70al"]
 [ext_resource type="Script" uid="uid://ds5vb0dhiqkwn" path="res://Scripts/PlayerStats.gd" id="4_stats"]
 [ext_resource type="Script" uid="uid://yl60ytkhavh8" path="res://Scripts/DebugHUD.gd" id="5_hud"]
+[ext_resource type="PackedScene" path="res://Scenes/LoosePiece.tscn" id="6_loosepiece"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Barril.tres" id="7_pd_barril"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Puerta.tres" id="7_pd_puerta"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Pale.tres" id="7_pd_pale"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Nevera.tres" id="7_pd_nevera"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Chapa.tres" id="7_pd_chapa"]
+[ext_resource type="Resource" path="res://Resources/Pieces/Neumatico.tres" id="7_pd_neumatico"]
+[ext_resource type="Resource" path="res://Resources/Pieces/TuboPVC.tres" id="7_pd_tubopvc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c6gwx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,6 +29,9 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6gwx"]
 albedo_color = Color(0.6840903, 0.67154026, 0.26705635, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_island"]
+size = Vector3(11, 0.47723976, 16)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2dftf"]
 
@@ -48,6 +59,48 @@ size = Vector3(6.3657055, 0.49667227, 7.1852355)
 [sub_resource type="BoxShape3D" id="BoxShape3D_y7y61"]
 size = Vector3(6.3657055, 0.49667227, 7.1852355)
 
+[sub_resource type="BoxMesh" id="BoxMesh_puerta"]
+size = Vector3(1.0, 2.0, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_puerta"]
+size = Vector3(1.0, 2.0, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pale"]
+size = Vector3(1.2, 0.15, 1.0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pale"]
+size = Vector3(1.2, 0.15, 1.0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nevera"]
+size = Vector3(0.6, 0.5, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nevera"]
+size = Vector3(0.6, 0.5, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_chapa"]
+size = Vector3(1.0, 0.05, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_chapa"]
+size = Vector3(1.0, 0.05, 1.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_neumatico"]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_neumatico"]
+height = 0.3
+radius = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tubopvc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tubopvc"]
+height = 1.5
+radius = 0.05
+
 [node name="World" type="Node3D" unique_id=884560710]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=392965647]
@@ -59,9 +112,15 @@ environment = SubResource("Environment_bcbcq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=875838054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2613802, -0.5)
-use_collision = true
+use_collision = false
 size = Vector3(11, 0.47723976, 16)
 material = SubResource("StandardMaterial3D_c6gwx")
+
+[node name="IslandFloor" type="StaticBody3D" parent="." unique_id=612044837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2613802, -0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IslandFloor" unique_id=612044838]
+shape = SubResource("BoxShape3D_island")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=848478572]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.121964, 0)
@@ -127,15 +186,75 @@ layout_mode = 2
 value = 100.0
 show_percentage = false
 
-[node name="Barrel" type="RigidBody3D" parent="." unique_id=61461760]
+[node name="Barrel" parent="." instance=ExtResource("6_loosepiece")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
-mass = 8.0
+piece_data = ExtResource("7_pd_barril")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Barrel" unique_id=32320447]
+[node name="MeshInstance3D" parent="Barrel"]
 mesh = SubResource("CylinderMesh_barrel")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Barrel" unique_id=1305503628]
+[node name="CollisionShape3D" parent="Barrel"]
 shape = SubResource("CylinderShape3D_barrel")
+
+[node name="Puerta" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.2, -2)
+piece_data = ExtResource("7_pd_puerta")
+
+[node name="MeshInstance3D" parent="Puerta"]
+mesh = SubResource("BoxMesh_puerta")
+
+[node name="CollisionShape3D" parent="Puerta"]
+shape = SubResource("BoxShape3D_puerta")
+
+[node name="Pale" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.6, -2)
+piece_data = ExtResource("7_pd_pale")
+
+[node name="MeshInstance3D" parent="Pale"]
+mesh = SubResource("BoxMesh_pale")
+
+[node name="CollisionShape3D" parent="Pale"]
+shape = SubResource("BoxShape3D_pale")
+
+[node name="Nevera" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -2)
+piece_data = ExtResource("7_pd_nevera")
+
+[node name="MeshInstance3D" parent="Nevera"]
+mesh = SubResource("BoxMesh_nevera")
+
+[node name="CollisionShape3D" parent="Nevera"]
+shape = SubResource("BoxShape3D_nevera")
+
+[node name="Chapa" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.1, -5)
+piece_data = ExtResource("7_pd_chapa")
+
+[node name="MeshInstance3D" parent="Chapa"]
+mesh = SubResource("BoxMesh_chapa")
+
+[node name="CollisionShape3D" parent="Chapa"]
+shape = SubResource("BoxShape3D_chapa")
+
+[node name="Neumatico" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -5)
+piece_data = ExtResource("7_pd_neumatico")
+
+[node name="MeshInstance3D" parent="Neumatico"]
+mesh = SubResource("CylinderMesh_neumatico")
+
+[node name="CollisionShape3D" parent="Neumatico"]
+shape = SubResource("CylinderShape3D_neumatico")
+
+[node name="TuboPVC" parent="." instance=ExtResource("6_loosepiece")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
+piece_data = ExtResource("7_pd_tubopvc")
+
+[node name="MeshInstance3D" parent="TuboPVC"]
+mesh = SubResource("CylinderMesh_tubopvc")
+
+[node name="CollisionShape3D" parent="TuboPVC"]
+shape = SubResource("CylinderShape3D_tubopvc")
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1759267692]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43250334, 8.398633)

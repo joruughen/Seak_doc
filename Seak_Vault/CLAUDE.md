@@ -7,7 +7,7 @@ Created: 2026-07-11
 
 ## Codebase
 
-Ruta del proyecto Godot: `C:\Users\jotit\OneDrive\Documentos\GitHub\SeaK\seak`
+Ruta del proyecto Godot: `F:\Claude_Vaults\Seak_doc\seak`
 
 ## Structure
 

@@ -1,0 +1,1 @@
+{"nodes": [{"id": "wiki_index", "label": "\u00cdndice Maestro", "file_type": "document", "source_file": "Seak_Vault/wiki/index.md"}], "edges": [{"source": "wiki_index", "target": "wiki_hot", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "Seak_Vault/wiki/index.md"}], "hyperedges": []}

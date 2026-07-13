@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+                "file": "wiki/design/Roadmap Prototipo SeaK.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "ADR-003 Sistema de Nado, Estamina e Interacción"
+              "title": "Roadmap Prototipo SeaK"
             }
           }
         ]
@@ -166,13 +166,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+                "file": "wiki/design/Roadmap Prototipo SeaK.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ADR-003 Sistema de Nado, Estamina e Interacción"
+              "title": "Outline of Roadmap Prototipo SeaK"
             }
           }
         ],
@@ -193,25 +193,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "d6161f3126f27e9d",
+  "active": "9f5ad9830ac11fa4",
   "lastOpenFiles": [
+    "wiki/hot.md.tmp.10876.f7930d4bdd15",
+    "wiki/log.md.tmp.10876.3bb644938484",
+    "wiki/hot.md.tmp.10876.bacc50b30028",
+    "wiki/log.md.tmp.10876.51034d75ae87",
+    "wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md.tmp.10876.fb3aa38e26bb",
+    "CLAUDE.md.tmp.10876.fad4f21da6db",
+    "wiki/modules/Player Controller.md.tmp.10876.32a7a04b7a2f",
+    "wiki/design/Roadmap Prototipo SeaK.md.tmp.10876.759726b7ef0a",
+    "wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
+    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
     "graphify-out/cache",
     "graphify-out/cache/semantic/d247e736c6d2fc2a05c79571c271e6eed0499f8ca815dcb55f0ed11a6bd409e3.json",
     "graphify-out/cache/semantic/5321ec3cb79decdabe4520398169f41d1857fcbf86ac95da39a5590dd9bdb9c9.json",
-    "graphify-out/cache/semantic/6075c7309658cc625adbd9b3efa072d579472890eba6532a5ce695131f6d7e8b.json",
-    "graphify-out/cache/semantic/01ec2a0107fbe2d953bff1fc2f6a0938977140939d697a2b4eda41c4fbceb995.json",
-    "graphify-out/cache/semantic/9236a2354dcca4faf4082d77ba90bd2acc89aba7c5d70136528db30cf3fca598.json",
-    "graphify-out/cache/semantic/d8b239640a8e383c69271a29fa5dad9c7c2d3c69f341202f4fb29d829b87ebc6.json",
-    "graphify-out/cache/semantic/1b7097539e7a89db8dcbd6fce3bed5ec3dfc8cd77517be459d878faf2c9d0048.json",
-    "graphify-out/cache/semantic/c95dabcd4305edef5257322a5486b022217b86813075910b0f89fbb02be52f4a.json",
     "wiki/modules/Player Controller.md",
-    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
     "wiki/design/Roadmap Prototipo SeaK.md",
     "wiki/design/Análisis Técnico Prototipo SeaK.md",
     "wiki/overview.md",
     "wiki/index.md",
-    "wiki/log.md.tmp.2640.db199653c5cf",
-    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md.tmp.2640.9bd99e284c30",
     "wiki/concepts/Shader de Agua.md",
     "wiki/modules/Cube Flotante.md",
     "wiki/concepts/Físicas de Flotabilidad.md",

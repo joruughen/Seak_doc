@@ -50,8 +50,8 @@ Detalle de la implementación: [[ADR-003 Sistema de Nado, Estamina e Interacció
 
 *Objetivo: "cualquier cosa es un chasis" — probado EN TIERRA, sin agua de por medio.*
 
-- [ ] Resource `PieceData`: `mass`, `buoyancy_factor`, `hp`, `flags` (walkable, grabbable_edge, storage, bumper, armor)
-- [ ] Escena `LoosePiece` (RigidBody3D + shape primitiva + PieceData) — instanciar los 7 objetos del prototipo
+- [x] Resource `PieceData`: `mass`, `buoyancy_factor`, `hp`, `flags` (walkable, grabbable_edge, storage, bumper, armor)
+- [x] Escena `LoosePiece` (RigidBody3D + shape primitiva + PieceData) — instanciar los 7 objetos del prototipo
 - [ ] Modo construcción FPS: `RayCast3D` desde cámara + ghost preview verde/rojo
 - [ ] Snap asistido: superficie + rejilla 0.25 m + rotación 90°
 - [ ] `BoatManager` (RigidBody3D): génesis al soldar 2 piezas sueltas — migrar meshes+shapes, liberar cuerpos, transferir velocidad ponderada
@@ -62,6 +62,8 @@ Detalle de la implementación: [[ADR-003 Sistema de Nado, Estamina e Interacció
 - [ ] Mapa `shape_index → piece_id` (lo consumirá la Fase 4)
 
 **DoD:** en la playa, pego barril+puerta+palé en cualquier orden; el ensamble es UN RigidBody que empujo con la Fase 1; el inspector muestra masa y COM correctos; no hay tirones al soldar.
+
+**Grupo 1 completado (2026-07-12)**: `PieceData` + `LoosePiece` + los 7 objetos de prueba instanciados en la playa. Detalle: [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]]. De paso se arregló un bug transversal (no de esta fase): el pitch de cámara topaba en -40° y no había agachado, por lo que las piezas bajas/planas (Palé, Chapa) eran casi imposibles de agarrar — ver mismo ADR.
 
 ---
 

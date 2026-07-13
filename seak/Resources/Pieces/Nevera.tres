@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PieceData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/PieceData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+piece_name = "Nevera portátil"
+mass = 10.0
+buoyancy_factor = 2.0
+hp = 35.0
+flags = 4
+storage_slots = 4

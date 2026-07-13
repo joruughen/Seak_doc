@@ -41,11 +41,22 @@ const SWIM_EXIT_DEPTH := -0.2           # los pies deben salir por encima del ag
 
 # --- Agarrar / empujar (Fase 1) ---
 @export var interact_range := 2.5
-@export var carry_max_mass := 15.0      # piezas <= esto se cargan; más pesado, solo se empuja
+@export var carry_max_mass := 30.0      # piezas <= esto se cargan; más pesado, solo se empuja
+# 30, no 15: el umbral viejo se ajustó en la Fase 1 solo para distinguir el
+# Barril (8) del Cube (200). La Chapa metálica (Fase 2, 25 kg, la más pesada
+# de las 7 piezas del prototipo) caía en la rama de "solo empujar" y nunca se
+# podía agarrar. 30 deja las 7 piezas agarrables y el Cube (200) push-only.
 @export var carry_catch_up_rate := 15.0 # 1/s: qué tan rápido cierra la distancia al HoldPoint (proporcional, no snap-en-1-frame)
 @export var carry_speed_limit := 12.0   # tope de seguridad (evita atravesar geometría), ya no es el mecanismo principal de control
 @export var push_hold_force := 400.0    # N continuos al empujar sostenido (además del choque pasivo)
 @export var push_stamina_cost := 10.0   # unidades/seg empujando sostenido
+
+# --- Agachado (fix: sin esto la cámara no baja lo suficiente para apuntar a
+# piezas bajas/planas paradas cerca, aun con el pitch ampliado a -80°) ---
+const CROUCH_SPEED = 2.5
+@export var crouch_camera_drop := 0.55  # cuánto baja la cámara agachado, en metros
+@export var crouch_transition_speed := 8.0
+var is_crouching := false
 
 var current_state: State = State.NORMAL
 var held_body: RigidBody3D = null
@@ -58,6 +69,7 @@ var gravity = 9.8
 @onready var hold_point = $Head/Camera3D/HoldPoint
 @onready var stats: PlayerStats = $PlayerStats
 @onready var water = get_node_or_null('/root/World/Water')
+@onready var head_stand_y: float = head.position.y
 
 
 func _ready():
@@ -68,11 +80,15 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		# -80° (casi vertical) en vez de -40°: con el límite viejo la cámara no
+		# alcanzaba a apuntar a piezas bajas/planas (palé, chapa) paradas cerca,
+		# el raycast de _handle_interaction pasaba por encima sin poder agarrarlas.
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(60))
 
 
 func _physics_process(delta):
 	_update_state()
+	_update_crouch(delta)
 
 	match current_state:
 		State.SWIMMING:
@@ -120,6 +136,14 @@ func _update_state():
 			current_state = State.SWIMMING
 
 
+func _update_crouch(delta):
+	# Solo tiene sentido parado en tierra; nadando ya se apunta con el pitch
+	# completo (_physics_swimming usa el basis 3D de la cámara).
+	is_crouching = Input.is_action_pressed("crouch") and current_state == State.NORMAL and is_on_floor()
+	var target_y := head_stand_y - (crouch_camera_drop if is_crouching else 0.0)
+	head.position.y = lerp(head.position.y, target_y, clampf(delta * crouch_transition_speed, 0.0, 1.0))
+
+
 func _physics_normal(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -131,7 +155,9 @@ func _physics_normal(delta):
 			velocity.y = JUMP_VELOCITY
 
 	# Handle Sprint (drena estamina; sin estamina no se puede sprintar).
-	if Input.is_action_pressed("sprint") and not stats.is_exhausted():
+	if is_crouching:
+		speed = CROUCH_SPEED
+	elif Input.is_action_pressed("sprint") and not stats.is_exhausted():
 		speed = SPRINT_SPEED
 		if velocity.length() > 0.1:
 			stats.drain_stamina(sprint_stamina_cost * delta)

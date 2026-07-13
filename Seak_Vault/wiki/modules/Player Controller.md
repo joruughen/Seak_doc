@@ -25,6 +25,7 @@ updated: 2026-07-11
 | `SENSITIVITY` | 0.004 | mouse-look |
 | `BOB_FREQ` / `BOB_AMP` | 2.4 / 0.08 | head-bob senoidal |
 | `BASE_FOV` / `FOV_CHANGE` | 75 / 1.5 | FOV escala con velocidad |
+| `CROUCH_SPEED` | 2.5 | velocidad agachado |
 
 ## Flujo por frame físico (`_physics_process`)
 
@@ -51,3 +52,8 @@ Ver [[ADR-003 Sistema de Nado, Estamina e Interacción]] para el detalle complet
 - **Agarrar/cargar** objetos livianos (masa ≤ 15) con una "mano cinemática" (conduce la velocidad del RigidBody hacia un `HoldPoint` frente a la cámara) en vez de joints.
 - **Empujar sostenido** objetos pesados (masa > 15): `apply_force` continuo en la dirección de la cámara + drenaje de estamina — distinto del empuje pasivo por colisión de `_interact_with_rigid_bodies`.
 - **`DebugHUD`**: barras de hp/estamina/hambre sin arte, conectadas a las señales de `PlayerStats`.
+
+## Cámara y agachado (fix, 2026-07-12)
+
+- **Pitch de cámara**: `[-80°, 60°]` (antes `[-40°, 60°]`) — el límite viejo no dejaba apuntar el raycast de agarre a objetos bajos/planos (Palé, Chapa) parado cerca. Ver [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]].
+- **Agachado** (`crouch`, tecla Ctrl): baja `head.position.y` en `crouch_camera_drop=0.55` con transición suave y reduce velocidad a `CROUCH_SPEED`. Solo cámara+velocidad, sin resize de la cápsula de colisión. Nuevo, no estaba planeado en el roadmap — se agregó junto con el fix de pitch para que el jugador pueda agarrar piezas casi a ras de suelo.

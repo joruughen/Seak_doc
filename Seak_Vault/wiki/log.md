@@ -10,6 +10,26 @@ tags: [log]
 
 <!-- append-only: entradas nuevas ARRIBA -->
 
+## 2026-07-12 — Fix: piezas planas (Chapa, Puerta) atravesaban la isla al lanzarlas
+- Reportado: al lanzar/empujar con fuerza una pieza plana, atravesaba el `CSGBox3D` usado como isla de prueba.
+- Causa: `CSGBox3D.use_collision=true` genera colisión **cóncava** (trimesh), no un `BoxShape3D` convexo, aunque sea visualmente un rectángulo simple. Los colliders cóncavos son mucho más propensos a tunneling con cuerpos delgados/rápidos — a la velocidad de un lanzamiento fuerte, el desplazamiento por paso de física se salta la detección discreta contra el trimesh (no pasaba con una simple caída por gravedad, velocidad baja).
+- Fix: `World.tscn` — `CSGBox3D.use_collision=false` (queda solo visual) + nuevo `IslandFloor` (`StaticBody3D`+`BoxShape3D` convexo, mismo transform/tamaño). `LoosePiece.tscn` — `continuous_cd=true` en las 7 piezas como refuerzo contra tunneling.
+- Validado: script headless, Chapa lanzada desde 5m a -40 m/s con rotación aterriza limpiamente en la superficie de la isla (`NO_TUNNEL`).
+- Actualizado: [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]] ("Fix 3").
+
+## 2026-07-12 — Fix: la Chapa metálica no se podía agarrar (umbral de masa, no colisión)
+- Reportado tras el fix de cámara/agachado: seguía sin poder agarrarse la Chapa. Investigado vía graphify + lectura directa de `Player.gd`: no era bug de colisión/raycast — `_handle_interaction` gatea el agarre por `body.mass <= carry_max_mass`, y `carry_max_mass=15.0` se fijó en Fase 1 solo para distinguir Barril(8)/Cube(200). La Chapa pesa 25 kg (la más pesada de las 7 piezas por diseño), así que siempre caía en la rama de "solo empujar", que tampoco levanta una pieza plana del suelo.
+- Fix: `carry_max_mass` 15.0 → 30.0 en `Scripts/Player.gd` — las 7 piezas del prototipo (máx. Chapa, 25) quedan agarrables; el Cube (200) sigue push-only.
+- Validado: `--headless --import` sin errores.
+- Actualizado: [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]] (sección "Fix 2").
+
+## 2026-07-12 — Fase 2 Grupo 1 (datos base) + fix: piezas bajas/planas imposibles de agarrar
+- Movida la ruta del proyecto Godot a `F:\Claude_Vaults\Seak_doc\seak` (antes en `C:\Users\jotit\OneDrive\Documentos\GitHub\SeaK\seak`); `CLAUDE.md` actualizado.
+- Implementado Fase 2 Grupo 1 de [[Roadmap Prototipo SeaK]]: `Scripts/PieceData.gd` (Resource: mass/buoyancy_factor/hp/flags bitmask/storage_slots), `Scenes/LoosePiece.gd`+`.tscn` (RigidBody3D + PieceData, sincroniza masa en `_ready()`), 7 `Resources/Pieces/*.tres` con los valores de [[Análisis Técnico Prototipo SeaK]] §6, instanciados en `World.tscn` (el `Barrel` de Fase 1 se convirtió en la instancia LoosePiece del Barril, no se duplicó).
+- Reportado por el usuario: piezas bajas/planas (Palé, Chapa) casi imposibles de agarrar. Diagnóstico vía graphify/wiki: ningún ADR ni el roadmap planeaba un límite de cámara ni agachado — el pitch estaba clampeado a `[-40°,60°]` desde el template original, nunca reconsiderado. Fix: pitch ampliado a `[-80°,60°]` + nuevo agachado (`crouch`, tecla Ctrl) que baja la cámara 0.55m y reduce velocidad, sin tocar la colisión de la cápsula.
+- Validado headless: 7 piezas instancian correcto (`LoosePiece`+`PieceData`+masa sincronizada); pitch efectivo -79.99° confirmado; agachado baja la cámara de y=0.765 a y=0.215 en 1s simulado; piezas se asientan casi al ras del piso (Palé y≈0.034, Chapa y≈0.002), confirmando la causa del bug.
+- Creado: [[ADR-004 Piezas Sueltas y Fix de Agarre Bajo]]. Actualizados: [[Roadmap Prototipo SeaK]] (Grupo 1 marcado), [[Player Controller]].
+
 ## 2026-07-12 — Fix: el objeto cargado se quedaba atrás al moverse/girar la cámara
 - Bug legítimo de la Fase 1 (sistema de carga ya implementado en [[ADR-003 Sistema de Nado, Estamina e Interacción]]), no dependiente de fases futuras — se arregló ahora.
 - Causa: `_update_held_body` fijaba `linear_velocity = (to_target / delta)`, que intenta cerrar TODA la distancia al `HoldPoint` en un solo frame de física — a 60 Hz eso exige velocidades enormes para cualquier separación real, tope (`carry_speed_limit=6.0`) que se activaba constantemente al caminar/girar la cámara rápido. El objeto se quedaba atrás y solo alcanzaba al detenerse el jugador.

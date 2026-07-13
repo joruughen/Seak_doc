@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PieceData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/PieceData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+piece_name = "Chapa metálica"
+mass = 25.0
+buoyancy_factor = 0.3
+hp = 80.0
+flags = 16
+storage_slots = 0
