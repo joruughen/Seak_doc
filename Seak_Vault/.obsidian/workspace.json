@@ -30,6 +30,20 @@
               "icon": "lucide-file",
               "title": "Roadmap Prototipo SeaK"
             }
+          },
+          {
+            "id": "3cbb34de515d07f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/decisions/ADR-002 Estabilización Player-Cube.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ADR-002 Estabilización Player-Cube"
+            }
           }
         ]
       }
@@ -195,6 +209,15 @@
   },
   "active": "9f5ad9830ac11fa4",
   "lastOpenFiles": [
+    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
+    "wiki/decisions/ADR-002 Estabilización Player-Cube.md",
+    "wiki/design/_index.md",
+    "wiki/design/Análisis Técnico Prototipo SeaK.md",
+    "wiki/design/Roadmap Prototipo SeaK.md",
+    "wiki/overview.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
     "wiki/log.md.tmp.10876.36d5a578110c",
     "wiki/decisions/ADR-007 Modo Construcción — Ghost Preview y Snap.md.tmp.10876.a6f7d25e8429",
     "wiki/log.md.tmp.10876.36bbb040ab65",
@@ -206,27 +229,17 @@
     "wiki/decisions/ADR-007 Modo Construcción — Ghost Preview y Snap.md.tmp.10876.f78cc968e26d",
     "wiki/decisions/ADR-006 Extender Soldadura — Pieza a Bote y Fusión de Botes.md",
     "wiki/decisions/ADR-005 BoatManager — Génesis de Botes.md",
-    "wiki/decisions/ADR-002 Estabilización Player-Cube.md",
     "wiki/hot.md",
-    "wiki/design/Roadmap Prototipo SeaK.md",
     "wiki/index.md.tmp.10876.d33cff459dd0",
     "wiki/log.md.tmp.10876.6cb8dcb08108",
-    "wiki/decisions/ADR-005 BoatManager — Génesis de Botes.md.tmp.10876.1a122174e59c",
-    "wiki/decisions/ADR-004 Piezas Sueltas y Fix de Agarre Bajo.md",
-    "wiki/decisions/ADR-003 Sistema de Nado, Estamina e Interacción.md",
     "wiki/modules/Player Controller.md",
-    "wiki/design/Análisis Técnico Prototipo SeaK.md",
-    "wiki/overview.md",
-    "wiki/index.md",
     "wiki/concepts/Shader de Agua.md",
     "wiki/modules/Cube Flotante.md",
     "wiki/concepts/Físicas de Flotabilidad.md",
-    "wiki/design/_index.md",
     "wiki/decisions/ADR-001 Refactor del Shader de Agua.md",
     "wiki/concepts/CharacterController.md",
     "CLAUDE.md",
     "Welcome.md",
-    "wiki/log.md",
     "wiki/decisions/_index.md",
     "wiki/concepts/_index.md",
     "wiki/modules/_index.md",

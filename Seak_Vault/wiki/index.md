@@ -35,6 +35,7 @@ Wiki de arquitectura del proyecto **SeaK** (Godot 4.6). Empezar por [[overview]]
 - [[ADR-005 BoatManager — Génesis de Botes]]
 - [[ADR-006 Extender Soldadura — Pieza a Bote y Fusión de Botes]]
 - [[ADR-007 Modo Construcción — Ghost Preview y Snap]]
+- [[ADR-008 Rotación al Cargar y Bug de Signo en Botes Sostenidos]]
 
 ## Diseño ([[wiki/design/_index|índice]])
 - [[Análisis Técnico Prototipo SeaK]]

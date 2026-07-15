@@ -48,6 +48,8 @@ const SWIM_EXIT_DEPTH := -0.2           # los pies deben salir por encima del ag
 # podía agarrar. 30 deja las 7 piezas agarrables y el Cube (200) push-only.
 @export var carry_catch_up_rate := 15.0 # 1/s: qué tan rápido cierra la distancia al HoldPoint (proporcional, no snap-en-1-frame)
 @export var carry_speed_limit := 12.0   # tope de seguridad (evita atravesar geometría), ya no es el mecanismo principal de control
+@export var carry_rotation_rate := 10.0      # 1/s: mismo patrón proporcional que carry_catch_up_rate, pero para la rotación
+@export var carry_angular_speed_limit := 12.0 # rad/s, tope de seguridad análogo a carry_speed_limit
 @export var push_hold_force := 400.0    # N continuos al empujar sostenido (además del choque pasivo)
 @export var push_stamina_cost := 10.0   # unidades/seg empujando sostenido
 
@@ -427,6 +429,7 @@ func _update_weld_preview():
 	if hit.is_empty():
 		_clear_weld_preview()
 		return
+	hit = _refine_contact_for_curved_target(hit)
 
 	var target := hit.collider as RigidBody3D
 	var valid := target != null and target != held_body and (target is LoosePiece or target is BoatManager)
@@ -479,6 +482,61 @@ func _clear_weld_preview():
 	_weld_target_exception = null
 
 
+## Corrige el punto/normal de contacto cuando el objetivo es una superficie
+## CURVA (CylinderShape3D — Barril, Tubo PVC, Neumático). Una pieza de caras
+## planas (Box) apoyada contra un cilindro solo puede tocar en una línea de
+## tangencia, nunca con toda la cara — eso es geometría real, no se puede
+## eliminar del todo. Pero la normal cruda del rayo contra una curva es una
+## dirección radial CUALQUIERA (ej. (0.11, 0, 0.99)), casi nunca exactamente
+## un eje — mientras que la pieza sostenida solo puede quedar con caras
+## alineadas a los ejes (rotaciones de 90° en `_manual_rotation`). Empujar la
+## pieza a lo largo de esa normal diagonal, cuando la cara real que va a
+## tocar es perfectamente axial, es lo que dejaba el hueco asimétrico (un
+## borde casi tocando, el otro bien separado). Fix: de los 6 ejes de
+## `_manual_rotation` (±X/±Y/±Z, las 6 caras posibles de la pieza), se usa el
+## más parecido a la dirección radial real como normal de contacto — así el
+## hueco de curvatura queda centrado por igual a ambos lados.
+func _refine_contact_for_curved_target(hit: Dictionary) -> Dictionary:
+	var target := hit.collider as CollisionObject3D
+	if target == null:
+		return hit
+	var owner_id := target.shape_find_owner(hit.shape)
+	var shape_node := target.shape_owner_get_owner(owner_id) as CollisionShape3D
+	if shape_node == null or not (shape_node.shape is CylinderShape3D):
+		return hit
+
+	var cyl_xform: Transform3D = shape_node.global_transform
+	var axis_point: Vector3 = cyl_xform.origin
+	var axis_dir: Vector3 = cyl_xform.basis.y.normalized()
+	var radius: float = shape_node.shape.radius
+
+	# Punto del eje más cercano al impacto (proyección de hit.position sobre
+	# la recta del eje), y la dirección radial real desde ahí hacia el impacto.
+	var to_hit: Vector3 = hit.position - axis_point
+	var along_axis: float = to_hit.dot(axis_dir)
+	var closest_axis_point: Vector3 = axis_point + axis_dir * along_axis
+	var raw_radial: Vector3 = hit.position - closest_axis_point
+	if raw_radial.length() < 0.001:
+		return hit
+	raw_radial = raw_radial.normalized()
+
+	var best_axis := Vector3.ZERO
+	var best_dot := -INF
+	var axes: Array[Vector3] = [_manual_rotation.x, _manual_rotation.y, _manual_rotation.z]
+	for col in axes:
+		for s in [1.0, -1.0]:
+			var candidate: Vector3 = col * s
+			var d: float = candidate.dot(raw_radial)
+			if d > best_dot:
+				best_dot = d
+				best_axis = candidate
+
+	var refined := hit.duplicate()
+	refined.position = closest_axis_point + best_axis * radius
+	refined.normal = best_axis
+	return refined
+
+
 ## Duplicado visual (mismo mesh, transform local preservado, escala ORIGINAL
 ## aunque la pieza sostenida esté encogida para no tapar la vista — el ghost
 ## siempre muestra el tamaño real que va a quedar soldado) de cada
@@ -509,13 +567,24 @@ func _shape_half_extent_along(shape: Shape3D, local_dir: Vector3) -> float:
 	return 0.1  # fallback conservador para shapes no contempladas
 
 
-## Qué tan lejos hay que empujar la pieza sostenida a lo largo de
-## `world_normal` (la normal del impacto) para que quede asentada AL RAS de
-## la superficie en vez de enterrada — considera el tamaño real de cada
-## CollisionShape3D de la pieza/bote sostenido en la orientación que va a
-## quedar (`_manual_rotation`), no un padding fijo. Sin esto, piezas grandes
-## en una dirección (ej. el Tubo PVC acostado) quedaban enterradas en el
-## objetivo al soldar.
+## Qué tan lejos hay que empujar la RAÍZ del cuerpo sostenido (LoosePiece o
+## BoatManager) a lo largo de `world_normal` para que la pieza que realmente
+## queda mirando al objetivo termine al ras de la superficie, no enterrada ni
+## flotando — considera el tamaño real de cada CollisionShape3D en la
+## orientación que va a quedar (`_manual_rotation`), no un padding fijo.
+##
+## El signo importa: para una pieza suelta la malla/shape está centrada en el
+## origen del cuerpo (offset local = 0), así que un signo equivocado pasa
+## inadvertido — el bug solo se manifiesta sosteniendo un BOTE de 2+ piezas,
+## donde cada shape SÍ tiene un offset local real respecto a la raíz. Si
+## `d` es la distancia (con signo) de esa pieza hacia el objetivo proyectada
+## sobre la normal, la raíz debe quedar en
+##   root = hit.position + normal·(extent − d)
+## (no `extent + d`): sumar el offset en vez de restarlo empuja la raíz por
+## partida doble para cualquier pieza que no esté centrada en el origen,
+## dejando un hueco (o una superposición) proporcional a cuánto sobresale esa
+## pieza del centro del bote — más notorio cuanto más grande el bote o más
+## extremas las rotaciones, que es justo cuando el usuario lo reportó.
 func _held_half_extent_toward(world_normal: Vector3) -> float:
 	var root_local_normal: Vector3 = _manual_rotation.inverse() * world_normal
 	var max_extent := 0.0
@@ -524,7 +593,7 @@ func _held_half_extent_toward(world_normal: Vector3) -> float:
 			var shape_local_dir: Vector3 = child.transform.basis.inverse() * root_local_normal
 			var extent := _shape_half_extent_along(child.shape, shape_local_dir)
 			var pos_offset: float = child.transform.origin.dot(root_local_normal)
-			max_extent = maxf(max_extent, extent + pos_offset)
+			max_extent = maxf(max_extent, extent - pos_offset)
 	return max_extent
 
 
@@ -542,9 +611,11 @@ func _held_half_extent_toward(world_normal: Vector3) -> float:
 ## todavía (eso es un modo de construcción futuro sobre el casco), alinear a
 ## una rejilla no aporta nada hoy; se prioriza que dos piezas SIEMPRE queden
 ## tocándose al confirmar.
+const WELD_CONTACT_MARGIN := 0.005  # antes 0.02 — colchón mínimo contra jitter físico, no contra el hueco de curvatura (ver ADR-008)
+
 func _compute_snap_transform(hit: Dictionary) -> Transform3D:
 	var half_extent := _held_half_extent_toward(hit.normal)
-	var pos: Vector3 = hit.position + hit.normal * (half_extent + 0.02)
+	var pos: Vector3 = hit.position + hit.normal * (half_extent + WELD_CONTACT_MARGIN)
 	return Transform3D(_manual_rotation, pos)
 
 
@@ -585,7 +656,26 @@ func _update_held_body(_delta):
 	# solo lo necesario para alcanzar, sin depender de la duración del frame.
 	var to_target = hold_point.global_position - held_body.global_position
 	held_body.linear_velocity = (to_target * carry_catch_up_rate).limit_length(carry_speed_limit)
-	held_body.angular_velocity = held_body.angular_velocity.lerp(Vector3.ZERO, 0.2)
+
+	# Rotación proporcional, mismo patrón que la posición de arriba (nunca
+	# "en 1 frame" — ver el comentario de ADR-003 sobre por qué eso exige
+	# velocidades absurdas): sin esto la pieza sostenida no giraba con la
+	# cámara y quedaba con la orientación física que tuviera en ese momento.
+	# Objetivo = la cámara (para que gire "en tu mano" al mirar alrededor)
+	# más el ajuste manual R/T/Y. El ghost y la soldadura final siguen
+	# usando `_manual_rotation` SOLA en espacio mundial (sin la cámara) —
+	# intencional: preserva las 24 orientaciones "de cubo" alineadas a ejes
+	# que protegen a walkable/grabbable_edge de Fase 3 (ver ADR-007), sin
+	# importar hacia dónde mirabas al soldar.
+	var target_basis: Basis = camera.global_transform.basis * _manual_rotation
+	var current_quat := held_body.global_transform.basis.get_rotation_quaternion()
+	var target_quat := target_basis.get_rotation_quaternion()
+	var diff := target_quat * current_quat.inverse()
+	var angle := diff.get_angle()
+	if angle > 0.0001:
+		held_body.angular_velocity = (diff.get_axis() * angle * carry_rotation_rate).limit_length(carry_angular_speed_limit)
+	else:
+		held_body.angular_velocity = Vector3.ZERO
 
 
 func _push_held(body: RigidBody3D, delta):

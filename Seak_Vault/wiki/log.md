@@ -10,6 +10,27 @@ tags: [log]
 
 <!-- append-only: entradas nuevas ARRIBA -->
 
+## 2026-07-14 — Ajuste: margen de contacto reducido a 0.005 (era 0.02)
+- El usuario preguntó qué controla el hueco residual entre piezas planas/redondas tras el fix de simetría. Se explicó: (1) el margen fijo `+0.02`, igual en toda soldadura; (2) el hueco de curvatura en sí, geométrico, no eliminable. Confirmado que contra la tapa PLANA de una pieza redonda el hueco ya es solo el margen (~0.02m).
+- A pedido del usuario, se bajó el margen a `WELD_CONTACT_MARGIN := 0.005` (constante nombrada, antes literal `0.02`).
+- Antes de aplicar, se investigó un rodamiento observado en la prueba (bote Barril+Puerta recorriendo ~4.7m tras soldarse) — se descartó que lo causara el margen: reproducido IDÉNTICO con 0.02 y con 0.005 (8.36 m/s ambos casos). Es comportamiento preexistente y físicamente esperable (el Barril es redondo, puede rodar apoyado de costado).
+- Actualizado: [[ADR-008 Rotación al Cargar y Bug de Signo en Botes Sostenidos]] (nueva sección "Adenda 2").
+
+## 2026-07-14 — Fix: contacto asimétrico contra superficies curvas (Nevera vs Barril)
+- Reportado con captura: un cubo soldado contra el costado curvo de un cilindro se veía "no conectado", casi flotando. Confirmado que la física SÍ estaba soldada (se mueve como un solo cuerpo con el cilindro) — el problema era geométrico/visual.
+- Límite real no eliminable: una cara plana contra un cilindro solo toca en una línea de tangencia. Medido: 10-18cm de hueco en las esquinas, pero ASIMÉTRICO (un borde casi tocando, otro bien separado).
+- Causa de la asimetría (corregible): `hit.normal` contra una curva es una dirección radial cualquiera, casi nunca un eje exacto — pero la pieza sostenida solo puede quedar alineada a ejes (rotaciones de 90°). Empujar a lo largo de esa normal diagonal, cuando la cara real es axial, descentraba el contacto.
+- Fix: nueva `_refine_contact_for_curved_target()` — si el objetivo es un `CylinderShape3D`, reemplaza la normal radial cruda por el eje de `_manual_rotation` más parecido.
+- Validado headless: las 4 esquinas de la cara de contacto pasan de (0.50, 0.50, 0.59, 0.59) a las 4 EXACTAMENTE iguales (0.516, valor geométrico exacto). El hueco de curvatura sigue existiendo (es real) pero ahora parejo.
+- Actualizado: [[ADR-008 Rotación al Cargar y Bug de Signo en Botes Sostenidos]] (nueva sección "Adenda").
+
+## 2026-07-14 — Fix: rotación al cargar (sigue a la cámara) + bug de signo en botes sostenidos
+- El usuario trajo dos propuestas técnicas de Gemini (quaternions para rotación al cargar; Snap Points/Marker3D para reemplazar la matemática de soldadura) pidiendo validarlas antes de implementar.
+- **Bug 1 (rotación estática)**: diagnóstico de Gemini correcto — `_update_held_body` solo controlaba posición, la rotación se amortiguaba a cero en vez de seguir a la cámara. Adoptado el enfoque de quaternions (eje-ángulo → `angular_velocity`), pero con control PROPORCIONAL (mismo patrón que `carry_catch_up_rate`), no "en 1 frame". Rotación objetivo = `camera.basis * _manual_rotation`; el ghost/soldadura final siguen usando `_manual_rotation` sola (sin cámara), a propósito, para preservar las 24 orientaciones "de cubo" que protegen a Fase 3.
+- **Bug 2 (huecos al soldar)**: diagnóstico de Gemini ("Síndrome del Bounding Box") RECHAZADO con evidencia — la fórmula ya es exacta (no bounding box), validada en 64/64 combos en ADR-007. Propuesta de Snap Points RECHAZADA — es un downgrade de diseño (sockets fijos en vez de soldar en cualquier punto, contradice "cualquier cosa es un chasis"). En su lugar, investigando por qué el hueco seguía apareciendo, se encontró el bug real: error de signo en `_held_half_extent_toward` (`extent + pos_offset` en vez de `extent - pos_offset`), invisible en toda pieza suelta (offset local siempre 0) y solo real al sostener un BOTE de 2+ piezas (offset local real por pieza). Explica por qué se notaba "sobre todo con rotaciones" — rotar un bote asimétrico cambia cuál pieza es la líder.
+- Validado headless: rotación converge de 90° de error a 1.47° en 1s; hueco en bote sostenido baja de 1.42m a 0.11m.
+- Creado: [[ADR-008 Rotación al Cargar y Bug de Signo en Botes Sostenidos]].
+
 ## 2026-07-13 — Fix real de los huecos: el jugador empujaba sin querer el objetivo al pararse cerca
 - Con una segunda captura (ghost gigante verde) se separaron dos fenómenos: (1) el "ghost gigante" no era bug — escala exacta 1.0, posición al ras; era solo la cámara a ~0.5m del objetivo (perspectiva normal al acercarse mucho a un objetivo angosto). El usuario decidió no tocar esto. (2) El hueco real SÍ se reprodujo, con una causa nueva: el jugador empuja físicamente objetivos livianos (Tubo PVC, 4kg) al pararse cerca para apuntarlos, usando el mecanismo de empuje de la Fase 1 (`_interact_with_rigid_bodies`, 200N). El objetivo se corre entre el momento en que el ghost calcula la posición y el momento de confirmar.
 - Reproducido headless: tubo asentado en el piso + jugador parado cerca 30 frames (0.5s) sin el fix → se corre varios centímetros; con el fix → deriva de solo 0.0015m.
